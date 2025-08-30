@@ -1,136 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SMCG – Small to Mid Cap Geoscience Consultants</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>SMCG – Small to Mid Cap Geoscience Consultants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
-    <style>
-        :root {
-            --primary-color: #002244;
-            --accent-color: #ffcc00;
-            --background-color: #f4f4f4;
-            --text-color: #333;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-        }
-
-        nav {
-            background-color: #001933;
-            text-align: center;
-            padding: 0.75rem;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 1.5rem;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        main {
-            max-width: 960px;
-            margin: 2rem auto;
-            padding: 1rem;
-        }
-
-        section {
-            background-color: white;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            color: #777;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            nav a {
-                margin: 0 0.75rem;
-                display: inline-block;
-            }
-        }
-    </style>
+  <style>
+    :root{
+      --primary-color:#002244;
+      --accent-color:#ffcc00;
+      --background-color:#f4f4f4;
+      --text-color:#333;
+      --card:#fff;
+      --muted:#6b7280;
+      --ring:rgba(0,34,68,0.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Roboto',sans-serif;
+      color:var(--text-color);
+      background:var(--background-color);
+      line-height:1.6;
+    }
+    header{
+      background:linear-gradient(180deg,#002244 0%, #001933 100%);
+      color:#fff;
+      padding:3rem 1rem 2.25rem;
+      text-align:center;
+    }
+    header h1{margin:0;font-size:2.6rem;letter-spacing:0.5px}
+    header p{margin:0.5rem 0 0;color:#e5e7eb}
+    nav{
+      background:#001933;
+      display:flex;justify-content:center;gap:1.5rem;
+      padding:0.75rem 1rem; position:sticky; top:0; z-index:10;
+    }
+    nav a{
+      color:#fff;text-decoration:none;font-weight:500;font-size:0.98rem;
+      padding:0.4rem 0.6rem;border-radius:8px;
+    }
+    nav a:hover{color:var(--accent-color);background:rgba(255,255,255,0.05)}
+    main{max-width:1100px;margin:2rem auto;padding:0 1rem}
+    section{
+      background:var(--card);border-radius:12px;padding:2rem;margin-bottom:1.5rem;
+      box-shadow:0 6px 18px var(--ring);
+    }
+    h2{color:var(--primary-color);margin-top:0;font-size:1.6rem}
+    .grid{display:grid;gap:1.25rem}
+    @media(min-width:768px){.grid.cols-2{grid-template-columns:1fr 1fr}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    ul.clean{margin:0;padding-left:1.1rem}
+    .pill{display:inline-block;background:#f1f5f9;color:#0f172a;border-radius:999px;padding:0.25rem 0.65rem;font-size:0.85rem;margin-right:0.4rem}
+    .muted{color:var(--muted)}
+    .card{
+      background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.25rem;
+      box-shadow:0 2px 6px rgba(0,0,0,0.04);
+    }
+    .price-card{
+      border:1px solid #e5e7eb;border-radius:14px;background:#fff;padding:1.5rem;
+      display:flex;flex-direction:column;gap:0.75rem; position:relative;
+    }
+    .price-card.highlight{border-color:var(--accent-color);box-shadow:0 10px 24px rgba(255,204,0,0.15)}
+    .price{font-size:2rem;font-weight:700;color:#111827}
+    .small{font-size:0.9rem}
+    .btn{
+      display:inline-block;background:var(--primary-color);color:#fff;text-decoration:none;
+      padding:0.65rem 1rem;border-radius:10px;font-weight:700;letter-spacing:0.2px;
+    }
+    .btn:hover{opacity:0.95}
+    .btn.secondary{background:#fff;color:var(--primary-color);border:1px solid var(--primary-color)}
+    .cta{
+      display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:0.5rem
+    }
+    .tag{position:absolute;top:12px;right:12px;background:var(--accent-color);color:#111827;font-weight:700;font-size:0.8rem;padding:0.25rem 0.5rem;border-radius:6px}
+    footer{ text-align:center; padding:1.25rem; color:#777; font-size:0.9rem }
+    /* Case study layout */
+    .cs-title{margin:0 0 0.25rem;font-size:1.1rem}
+    .cs-meta{font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem}
+    .cs-points{padding-left:1.1rem;margin:0}
+    /* Anchor offsets for sticky nav */
+    .anchor{position:relative;top:-70px;visibility:hidden}
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>SMCG</h1>
-        <p>Small to Mid Cap Geoscience Consultants</p>
-    </header>
+  <header>
+    <h1>SMCG</h1>
+    <p>Small to Mid Cap Geoscience Consultants – Data-driven discovery for explorers</p>
+  </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#rate-card">Rate&nbsp;Card</a>
+    <a href="#projects">Project Examples</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>SMCG is a geoscience consulting firm supporting small to mid-cap companies in the resource sector. We specialize in applied geoscience, data-driven exploration, and integrated project evaluation.</p>
-        </section>
+  <main>
+    <span id="about" class="anchor"></span>
+    <section>
+      <h2>About SMCG</h2>
+      <p>
+        SMCG helps explorers turn scattered geodata into decisions. Led by <strong>Drew Heasman</strong> (20+ years in exploration; award-winning geo-ML),
+        we build ML-ready data systems, prospectivity workflows, and decision support that scale from greenfields to advanced projects.
+      </p>
+      <div class="cta">
+        <span class="pill">Geo + AI/ML</span>
+        <span class="pill">Prospectivity</span>
+        <span class="pill">QA/QC Systems</span>
+        <span class="pill">Dashboards &amp; Tools</span>
+      </div>
+    </section>
 
-        <section id="services">
-            <h2>Services</h2>
-            <ul>
-                <li>Geological and Geophysical Interpretation</li>
-                <li>Exploration Targeting & Technical Advisory</li>
-                <li>AI & Data Science for Mineral Projects</li>
-                <li>Public Disclosure & 43-101 Review</li>
-                <li>GIS & Geodata Integration</li>
-            </ul>
-        </section>
+    <span id="services" class="anchor"></span>
+    <section>
+      <h2>Services</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <strong>Exploration Data Systems</strong>
+          <p class="muted small">Database design, migration, validation, ML-ready schema</p>
+          <ul class="clean">
+            <li>Centralized drill, geochem, geophysics, mapping</li>
+            <li>Validation rules &amp; QA/QC pipelines</li>
+            <li>Automated exports for filings &amp; reporting</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Prospectivity &amp; Targeting</strong>
+          <p class="muted small">ML/fuzzy logic with Mineral Systems context</p>
+          <ul class="clean">
+            <li>Hybrid ML + expert features</li>
+            <li>Sensitivity &amp; feature importance</li>
+            <li>Target ranking &amp; drill-ready shortlists</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Anomaly Detection</strong>
+          <p class="muted small">Multi-parameter geochem/geophysics workflows</p>
+          <ul class="clean">
+            <li>Isolation Forests &amp; gradient boosting</li>
+            <li>Integrated surfaces &amp; maps</li>
+            <li>QA checks &amp; outlier tracing</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Text &amp; Knowledge Mining</strong>
+          <p class="muted small">NLP on reports/xDD to accelerate domain insight</p>
+          <ul class="clean">
+            <li>Co-occurrence &amp; mutual information analytics</li>
+            <li>Entity/topic extraction for targeting</li>
+            <li>Literature-driven hypotheses</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:contact@smcg-services.com">contact@smcg-services.com</a></p>
-            <p>LinkedIn: <a href="#">(add LinkedIn page)</a></p>
-        </section>
-    </main>
+    <span id="rate-card" class="anchor"></span>
+    <section>
+      <h2>Rate Card (CAD)</h2>
+      <div class="grid cols-3">
+        <div class="price-card">
+          <div class="price">$1,250<span class="small">/day</span></div>
+          <div class="muted small">Standard consulting</div>
+          <ul class="clean">
+            <li>Data systems, prospectivity, anomaly detection</li>
+            <li>Scoping + delivery + documentation</li>
+            <li>Flexible start, remote or on-site</li>
+          </ul>
+        </div>
+        <div class="price-card highlight">
+          <div class="tag">Most Popular</div>
+          <div class="price">$1,150<span class="small">/day</span></div>
+          <div class="muted small">Extended engagements (&gt; 20 days)</div>
+          <ul class="clean">
+            <li>Embedded with your team</li>
+            <li>Roadmaps &amp; capability uplift</li>
+            <li>Optional dashboarding &amp; training</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <div class="price">$250<span class="small">/hour</span></div>
+          <div class="muted small">Advisory / workshops</div>
+          <ul class="clean">
+            <li>Technical reviews &amp; strategy</li>
+            <li>Targeting sessions &amp; QA/QC audits</li>
+            <li>Short-format knowledge transfer</li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted small" style="margin-top:0.75rem;">
+        Fixed-fee packages available (e.g., database setup &amp; migration). Travel &amp; expenses billed at cost. Rates subject to GST/HST.
+      </p>
+      <div class="cta">
+        <a class="btn" href="#contact">Start a scope conversation</a>
+        <a class="btn secondary" href="#projects">See project examples</a>
+      </div>
+    </section>
 
-    <footer>
-        &copy; 2025 SMCG – Small to Mid Cap Geoscience Consultants
-    </footer>
+    <span id="projects" class="anchor"></span>
+    <section>
+      <h2>Project Examples</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3 class="cs-title">ML-Ready Exploration Database (Greenfields Au-Ag)</h3>
+          <div class="cs-meta">10 days · Database architecture, QA/QC, automated exports</div>
+          <ul class="cs-points">
+            <li>Consolidated drill, geochem, and mapping into a single schema</li>
+            <li>Built validation rules for intervals, duplicates, and assay ranges</li>
+            <li>Delivered “one-click” export templates for filings &amp; analysis</li>
+          </ul>
+          <p class="muted small">Outcome: Reduced data prep time by ~60%, enabled reproducible ML workflows.</p>
+        </div>
 
+        <div class="card">
+          <h3 class="cs-title">Prospectivity Mapping (Uranium, Basin-hosted)</h3>
+          <div class="cs-meta">15 days · Hybrid ML + mineral systems</div>
+          <ul class="cs-points">
+            <li>Integrated gravity, magnetics, structure, and proximity features</li>
+            <li>Trained gradient boosting with expert priors &amp; feature importance</li>
+            <li>Produced ranked targets with uncertainty bands</li>
+          </ul>
+          <p class="muted small">Outcome: Short-listed 8 priority targets; informed 2026 field program.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="cs-title">Multi-Parameter Anomaly Detection (Polymetallic)</h3>
+          <div class="cs-meta">12 days · Isolation Forests, geochem stacks, validation</div>
+          <ul class="cs-points">
+            <li>Unified historical datasets with modern assays</li>
+            <li>Flagged and traced multi-element anomalies across campaigns</li>
+            <li>Delivered reproducible notebooks + dashboard</li>
+          </ul>
+          <p class="muted small">Outcome: Identified overlooked trend; supported follow-up trenching.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="cs-title">NLP-Driven Knowledge Mining (District Synthesis)</h3>
+          <div class="cs-meta">8 days · xDD/text mining, MI &amp; co-occurrence analytics</div>
+          <ul class="cs-points">
+            <li>Extracted lithology–structure–age associations from literature</li>
+            <li>Ranked themes via mutual information and entropy</li>
+            <li>Fed hypotheses into prospectivity features</li>
+          </ul>
+          <p class="muted small">Outcome: Accelerated desktop study; improved feature engineering.</p>
+        </div>
+      </div>
+    </section>
+
+    <span id="contact" class="anchor"></span>
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Ready to scope a project or collaborate? Send a note and include your goals, datasets, and timeline.
+      </p>
+      <p><strong>Email:</strong> <a href="mailto:contact@smcg-services.com">contact@smcg-services.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href="#" aria-label="LinkedIn profile">(add LinkedIn page)</a></p>
+      <div class="cta">
+        <a class="btn" href="mailto:contact@smcg-services.com?subject=Project%20Inquiry%20-%20SMCG&body=Hi%20Drew%2C%0A%0AProject%20goal%3A%0ADatasets%3A%0ATimeline%3A%0ABudget%20range%3A%0A%0AThanks%2C%0A">Email Drew</a>
+        <a class="btn secondary" href="#rate-card">View rates</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 SMCG – Small to Mid Cap Geoscience Consultants
+  </footer>
 </body>
 </html>
