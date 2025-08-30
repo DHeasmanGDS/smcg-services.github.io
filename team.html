@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Team – SMCG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --primary-color:#002244;
+      --accent-color:#ffcc00;
+      --background-color:#f4f4f4;
+      --text-color:#333;
+      --card:#fff;
+      --muted:#6b7280;
+      --ring:rgba(0,34,68,0.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Roboto',sans-serif;color:var(--text-color);background:var(--background-color);line-height:1.6;}
+    header{background:linear-gradient(180deg,#002244 0%, #001933 100%);color:#fff;padding:3rem 1rem 2.25rem;text-align:center;}
+    header h1{margin:0;font-size:2.2rem}
+    header p{margin:0.5rem 0 0;color:#e5e7eb}
+    nav{background:#001933;display:flex;justify-content:center;gap:1.5rem;padding:0.75rem 1rem;position:sticky;top:0;z-index:10}
+    nav a{color:#fff;text-decoration:none;font-weight:500;font-size:0.98rem;padding:0.4rem 0.6rem;border-radius:8px}
+    nav a:hover{color:var(--accent-color);background:rgba(255,255,255,0.05)}
+    main{max-width:1100px;margin:2rem auto;padding:0 1rem}
+    section{background:var(--card);border-radius:12px;padding:2rem;margin-bottom:1.5rem;box-shadow:0 6px 18px var(--ring)}
+    h2{color:var(--primary-color);margin-top:0;font-size:1.6rem}
+    .grid{display:grid;gap:1.25rem}
+    @media(min-width:800px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    .member{display:grid;gap:1rem;align-items:center}
+    @media(min-width:640px){.member{grid-template-columns:140px 1fr}}
+    .avatar{
+      width:140px;height:140px;border-radius:50%;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;
+      background:#f1f5f9;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.08)
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;background:#f1f5f9;color:#0f172a;border-radius:999px;padding:0.28rem 0.7rem;font-size:0.85rem;margin:0 0.4rem 0.4rem 0}
+    .btn{display:inline-block;background:var(--primary-color);color:#fff;text-decoration:none;padding:0.6rem 1rem;border-radius:10px;font-weight:700}
+    .btn.secondary{background:#fff;color:var(--primary-color);border:1px solid var(--primary-color)}
+    footer{text-align:center;padding:1.25rem;color:#777;font-size:0.9rem}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Our Team</h1>
+    <p>Exploration expertise, data science depth, and practical delivery.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="team.html">Team</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Core Team</h2>
+
+      <!-- Drew -->
+      <div class="member">
+        <div class="avatar">
+          <img src="drew.jpg" alt="Photo of Drew Heasman" />
+        </div>
+        <div>
+          <h3 style="margin:0 0 0.25rem">Drew Heasman</h3>
+          <p class="muted" style="margin:0.25rem 0 0.6rem">
+            Geoscience data scientist with 20+ years in exploration. Builds machine-learning-ready data systems,
+            prospectivity and anomaly-detection workflows, and decision support. Director-level leadership;
+            international multi-award-winning in geodata science; MSc research in geoscience & text mining.
+          </p>
+          <div style="margin:0.5rem 0 0.75rem">
+            <span class="pill">Exploration Data Systems</span>
+            <span class="pill">Prospectivity (ML + Systems)</span>
+            <span class="pill">Anomaly Detection</span>
+            <span class="pill">Text Mining / NLP</span>
+          </div>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+            <a class="btn" href="bio.html">View Bio</a>
+            <a class="btn secondary" href="mailto:dheasman@smcg-services.com">Email</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Placeholder for future teammate (commented out) -->
+      <!--
+      <hr style="border:none;border-top:1px solid #e5e7eb;margin:1.5rem 0" />
+      <div class="member">
+        <div class="avatar" aria-label="Photo placeholder">SM</div>
+        <div>
+          <h3 style="margin:0 0 0.25rem">[Co-Lead Name]</h3>
+          <p class="muted" style="margin:0.25rem 0 0.6rem">
+            Add a short 2–3 line summary here: domain strengths, years of experience, and primary focus areas.
+          </p>
+          <div style="margin:0.5rem 0 0.75rem">
+            <span class="pill">Structural Geology</span>
+            <span class="pill">Exploration Strategy</span>
+            <span class="pill">QA/QC</span>
+          </div>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+            <a class="btn secondary" href="mailto:contact@smcg-services.com">Email</a>
+          </div>
+        </div>
+      </div>
+      -->
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 SMCG – Small to Mid Cap Geoscience Consultants
+  </footer>
+</body>
+</html>

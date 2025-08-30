@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bio – Drew Heasman | SMCG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --primary-color:#002244;
+      --accent-color:#ffcc00;
+      --background-color:#f4f4f4;
+      --text-color:#333;
+      --card:#fff;
+      --muted:#6b7280;
+      --ring:rgba(0,34,68,0.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Roboto',sans-serif;
+      color:var(--text-color);
+      background:var(--background-color);
+      line-height:1.6;
+    }
+    header{
+      background:linear-gradient(180deg,#002244 0%, #001933 100%);
+      color:#fff;
+      padding:3rem 1rem 2.25rem;
+      text-align:center;
+    }
+    header h1{margin:0;font-size:2.2rem;letter-spacing:0.3px}
+    header p{margin:0.5rem 0 0;color:#e5e7eb}
+    nav{
+      background:#001933;
+      display:flex;justify-content:center;gap:1.5rem;
+      padding:0.75rem 1rem; position:sticky; top:0; z-index:10;
+    }
+    nav a{
+      color:#fff;text-decoration:none;font-weight:500;font-size:0.98rem;
+      padding:0.4rem 0.6rem;border-radius:8px;
+    }
+    nav a:hover{color:var(--accent-color);background:rgba(255,255,255,0.05)}
+    main{max-width:1100px;margin:2rem auto;padding:0 1rem}
+    section{
+      background:var(--card);border-radius:12px;padding:2rem;margin-bottom:1.5rem;
+      box-shadow:0 6px 18px var(--ring);
+    }
+    h2{color:var(--primary-color);margin-top:0;font-size:1.6rem}
+    .grid{display:grid;gap:1.25rem}
+    @media(min-width:900px){.grid.cols-2{grid-template-columns:1.2fr 1fr}}
+    .pill{display:inline-block;background:#f1f5f9;color:#0f172a;border-radius:999px;padding:0.28rem 0.7rem;font-size:0.85rem;margin:0 0.4rem 0.4rem 0}
+    .muted{color:var(--muted)}
+    .btn{
+      display:inline-block;background:var(--primary-color);color:#fff;text-decoration:none;
+      padding:0.65rem 1rem;border-radius:10px;font-weight:700;letter-spacing:0.2px;
+    }
+    .btn:hover{opacity:0.96}
+    .btn.secondary{background:#fff;color:var(--primary-color);border:1px solid var(--primary-color)}
+    .keylist{list-style:none;padding:0;margin:0}
+    .keylist li{display:flex;gap:0.6rem;margin-bottom:0.35rem}
+    .cs-card{border:1px solid #e5e7eb;border-radius:12px;padding:1rem;background:#fff}
+    .cs-title{margin:0 0 0.25rem;font-size:1.05rem}
+    .cs-meta{font-size:0.85rem;color:var(--muted);margin-bottom:0.65rem}
+    ul.clean{margin:0;padding-left:1.1rem}
+    footer{ text-align:center; padding:1.25rem; color:#777; font-size:0.9rem
+	}
+	.profile{
+	  display:grid;
+	  gap:1.25rem;
+	  align-items:start;
+	}
+	@media (min-width:700px){
+	  .profile{
+		grid-template-columns: 160px 1fr; /* photo + content */
+	  }
+	}
+	@media (max-width:699px){
+	  .avatar{ width:120px; height:120px; margin:auto; }
+	}
+
+	.avatar{
+	  width:160px;
+	  height:160px;
+	  border-radius:50%;
+	  overflow:hidden;
+	  display:flex;
+	  align-items:center;
+	  justify-content:center;
+	  background:#f1f5f9;
+	  border:3px solid #fff;
+	  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+	}
+	.avatar img{
+	  width:100%;
+	  height:100%;
+	  object-fit:cover;
+	}
+	.profile-content{min-width:0;} /* prevents odd wrapping in narrow widths */
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Drew Heasman</h1>
+    <p>Geoscience Data Science • Exploration Strategy • Advisory</p>
+  </header>
+
+	<nav>
+	  <a href="index.html">Home</a>
+	  <a href="index.html#services">Services</a>
+	  <a href="team.html">Team</a>
+	  <a href="#rates">Rates</a>
+	  <a href="#contact">Contact</a>
+	</nav>
+
+
+
+  <main>
+    <!-- Profile / Summary -->
+	<section id="summary">
+	  <div class="profile">
+		<div class="avatar">
+		  <img src="drew.jpg" alt="Photo of Drew Heasman" />
+		</div>
+
+		<div class="profile-content">
+		  <h2 style="margin-top:0">Summary</h2>
+		  <p class="muted" style="margin-top:0">
+			Geoscientist and data scientist with 20+ years in mineral exploration. I build ML-ready data systems,
+			prospectivity and anomaly-detection workflows, and decision support for exploration programs—from greenfields to
+			advanced projects. Director-level leadership experience, international multi-award-winning geo-ML work, and research
+			applying AI, NLP, and information theory to geoscience data and text.
+		  </p>
+
+		  <ul class="keylist">
+			<li><strong>Current:</strong> Co-lead, SMCG (consulting in exploration data systems &amp; geo-ML)</li>
+			<li><strong>Education:</strong> MSc, Geology — focused on applying computer science to geoscience data<br>
+				BSc, Geology<br>
+				BSc, Computing &amp; Information Systems</li>
+			<li><strong>Location:</strong> Remote &amp; on-site by arrangement</li>
+		  </ul>
+
+		  <div style="margin-top:0.75rem;display:flex;gap:0.6rem;flex-wrap:wrap">
+			<a class="btn" href="mailto:dheasman@smcg-services.com">Email</a>
+			<a class="btn secondary" href="SMCG_Drew_Heasman_CV.pdf" download>Download CV</a>
+			<a class="btn secondary" href="https://www.linkedin.com/in/drew-heasman/" target="_blank" rel="noopener">LinkedIn</a>
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+
+    <!-- Expertise -->
+    <section id="expertise">
+      <h2>Expertise</h2>
+      <div>
+	    <span class="pill">Machine Learning / AI</span>
+        <span class="pill">Exploration Data Systems</span>
+		<span class="pill">Database Architecture</span>
+        <span class="pill">QA/QC Workflows</span>
+        <span class="pill">Prospectivity Mapping</span>
+        <span class="pill">Anomaly Detection</span>
+        <span class="pill">Geochem & Geophysics Integration</span>
+        <span class="pill">Text and Data Mining</span>
+        <span class="pill">Dashboards & Tools</span>
+		<span class="pill">MX Deposit</span>
+        <span class="pill">Leadership & Advisory</span>
+      </div>
+    </section>
+
+    <!-- Awards & Recognition -->
+    <section id="awards">
+      <h2>Awards & Recognition</h2>
+      <ul class="clean">
+        <li><strong>(2022) Frank Arnott – Next Generation Explorers Grand Prize Award (NGEA™)</strong></li>
+		<li><strong>(2022) Frank Arnott – Next Generation Explorers Impact and Exploration Significance Award (NGEA™)</strong></li>
+        <li><strong>(2024) Dundee Precious Metals – Future Explorers Challenge - First Place Winner</strong></li>
+        <li><strong>Multiple industry presentations & invited talks</strong> on geoscience and machine learning, prospectivity, and geodata strategy.</li>
+      </ul>
+    </section>
+
+	<!-- Rate Card -->
+	<section id="rates">
+	  <h2>Rates (CAD)</h2>
+	  <p class="muted" style="margin-top:-0.25rem">
+		Rates below apply to Drew Heasman. Other SMCG consultants may have different rates depending on scope and specialization.
+	  </p>
+
+	  <div class="grid cols-3" style="margin-top:1rem; gap:1.25rem; flex-wrap:wrap">
+		<div class="cs-card" style="padding:1.25rem">
+		  <div style="font-size:2rem;font-weight:700;color:#111827">
+			$1,400<span style="font-size:0.9rem">/day</span>
+		  </div>
+		  <div class="muted" style="font-size:0.9rem;margin:0.25rem 0 0.6rem">Standard consulting</div>
+		  <ul class="clean">
+			<li>Data systems, prospectivity, anomaly detection</li>
+			<li>Scoping, delivery, documentation</li>
+			<li>Remote or on-site</li>
+		  </ul>
+		</div>
+
+		<div class="cs-card" style="padding:1.25rem; border-color:#ffcc00; box-shadow:0 10px 24px rgba(255,204,0,0.12)">
+		  <div style="position:relative">
+			<span style="position:absolute;top:-8px;right:0;background:#ffcc00;color:#111827;font-weight:700;font-size:0.8rem;padding:0.25rem 0.5rem;border-radius:6px">Most Popular</span>
+		  </div>
+		  <div style="font-size:2rem;font-weight:700;color:#111827">
+			$1,300<span style="font-size:0.9rem">/day</span>
+		  </div>
+		  <div class="muted" style="font-size:0.9rem;margin:0.25rem 0 0.6rem">Extended engagements (&gt; 20 days)</div>
+		  <ul class="clean">
+			<li>Embedded collaboration</li>
+			<li>Roadmaps & capability uplift</li>
+			<li>Optional dashboards & training</li>
+		  </ul>
+		</div>
+
+		<div class="cs-card" style="padding:1.25rem">
+		  <div style="font-size:2rem;font-weight:700;color:#111827">
+			$350<span style="font-size:0.9rem">/hour</span>
+		  </div>
+		  <div class="muted" style="font-size:0.9rem;margin:0.25rem 0 0.6rem">Advisory / workshops</div>
+		  <ul class="clean">
+			<li>Technical reviews & strategy</li>
+			<li>Targeting sessions & QA/QC audits</li>
+			<li>Short-format knowledge transfer</li>
+		  </ul>
+		</div>
+
+		<!-- New R&D card -->
+		<div class="cs-card" style="padding:1.25rem; border-style:dashed; border-color:#6b7280;">
+		  <div style="font-size:1.6rem;font-weight:700;color:#111827">
+			R&D / Bespoke Solutions
+		  </div>
+		  <div class="muted" style="font-size:0.9rem;margin:0.25rem 0 0.6rem">
+			Discounted or negotiable rate (project-dependent)
+		  </div>
+		  <ul class="clean">
+			<li>Experimental workflows, prototypes, or pilots</li>
+			<li>Joint innovation with client teams</li>
+			<li>Lower rate if bordering on research & development</li>
+		  </ul>
+		</div>
+	  </div>
+
+	  <p class="muted" style="font-size:0.9rem;margin-top:0.75rem">
+		Fixed-fee packages available (e.g., database setup & migration). Travel & expenses billed at cost. Rates subject to GST/HST.
+	  </p>
+	  </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="muted">For collaborations, speaking, or advisory work:</p>
+      <div style="margin-top:0.5rem;display:flex;gap:0.6rem;flex-wrap:wrap">
+        <a class="btn" href="mailto:dheasman@smcg-services.com?subject=Inquiry%20-%20Bio%20Page">Get in touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 SMCG – Small to Mid Cap Geoscience Consultants
+  </footer>
+</body>
+</html>
