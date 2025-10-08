@@ -80,23 +80,10 @@ FILE 1: /proposals/agentic/index.html
     #gate button{margin-top:10px}
     #gate .small{margin-top:10px;color:#7f8ea3}
   </style>
-  <script defer src="../_shared/gate.js"></script>
 </head>
 <body>
-  <!-- Password Gate -->
-  <div id="gate" aria-modal="true" role="dialog" aria-labelledby="gtitle" aria-describedby="gdesc">
-    <div class="panel">
-      <h1 id="gtitle">Private proposal</h1>
-      <p id="gdesc">Enter the access code provided under NDA to view this page.</p>
-      <label class="sr" for="gpass">Access code</label>
-      <input id="gpass" type="password" inputmode="latin" autocomplete="off" placeholder="Access code" />
-      <button id="gunlock">Unlock</button>
-      <div id="gmsg" class="small" aria-live="polite"></div>
-    </div>
-  </div>
 
-  <!-- The app is hidden until unlocked -->
-  <div id="app" class="wrap" hidden>
+  <div id="app" class="wrap">
     <header>
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
