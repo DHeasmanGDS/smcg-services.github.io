@@ -1,0 +1,18 @@
+<!-- =============================
+FILE 3: /proposals/.htaccess  (OPTIONAL – only if hosting on Apache)
+- Enables real HTTP Basic Auth using a .htpasswd file.
+- Adds X‑Robots‑Tag noindex header as a second layer.
+============================= -->
+# Protect /proposals/ with Basic Auth (Apache)
+AuthType Basic
+AuthName "SMCG Proposals (Private)"
+AuthUserFile /var/www/smcg/.htpasswd
+Require valid-user
+
+# Disallow indexing by search engines
+Header set X-Robots-Tag "noindex, nofollow, noarchive"
+
+# Extra hardening
+<FilesMatch "\.(html|js|css)$">
+  Header set Cache-Control "no-store"
+</FilesMatch>

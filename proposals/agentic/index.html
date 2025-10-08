@@ -1,0 +1,453 @@
+<!-- =============================
+DIRECTORY: /proposals/agentic/
+FILES PROVIDED:
+  1) index.html  (the agentic AI proposal page; wrapped in a password gate; noindex)
+  2) /proposals/_shared/gate.js  (shared lightweight password gate)
+  3) /proposals/.htaccess (optional if using Apache – real HTTP Basic Auth + noindex)
+  4) README_DEPLOY.md (how to wire this into the SMCG site + remove GH Pages repo)
+
+Notes:
+- For strong protection, prefer server‑side auth (htaccess) or Cloudflare Access/Netlify password.
+- The JS gate is only for casual privacy and demo access control.
+============================= -->
+
+<!-- =============================
+FILE 1: /proposals/agentic/index.html
+============================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SMCG • Agentic AI for Junior Explorers (Private)</title>
+  <meta name="description" content="Private demo of SMCG agent workflows for junior explorers: Permit, Sampling/Logistics, QAQC, Reporting." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <style>
+    :root{--bg:#0c0f14;--panel:#121722;--muted:#98a2b3;--text:#e6edf3;--accent:#66e3c4;--accent-2:#a4b9ff;--danger:#ff6b6b;--ok:#5cd17a;--card:#121722;--card-2:#0f141e;--border:#1f2a3a;--shadow:0 10px 30px rgba(0,0,0,.35)}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,#0c0f14 0,#0b111a 100%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif}
+    a{color:var(--accent)}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;gap:14px;justify-content:space-between;margin-bottom:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:36px;height:36px;border-radius:10px;background:radial-gradient(circle at 30% 30%,var(--accent),transparent 40%),radial-gradient(circle at 70% 70%,var(--accent-2),transparent 40%),linear-gradient(135deg,#0b1a24,#101826);border:1px solid var(--border);box-shadow:var(--shadow)}
+    h1{font-size:22px;margin:0}
+    .tag{font-size:12px;color:var(--muted)}
+    nav{display:flex;gap:8px;flex-wrap:wrap}
+    .tab{border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer}
+    .tab.active{outline:2px solid #294055;border-color:#294055;background:linear-gradient(180deg,#121d2e,#0e1725)}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin:14px 0 24px}
+    .card{border:1px solid var(--border);background:linear-gradient(180deg,#0e1521,#0c111a);border-radius:16px;box-shadow:var(--shadow)}
+    .card .inner{padding:18px}
+    h2{font-size:18px;margin:0 0 12px}
+    .muted{color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#0f1b2a;border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:12px;color:#a9b6c8}
+    .grid{display:grid;gap:16px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    label{font-size:13px;color:#cbd5e1}
+    input,select,textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#0c121c;color:var(--text)}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    button{appearance:none;background:linear-gradient(180deg,#1a2e25,#11261f);color:#eafff7;border:1px solid #254a3f;border-radius:12px;padding:10px 14px;cursor:pointer}
+    button.secondary{background:linear-gradient(180deg,#151b28,#0f1520);border-color:#273448;color:#d2def1}
+    .ok{color:var(--ok)}
+    .danger{color:var(--danger)}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13px}
+    .foot{margin-top:18px;color:var(--muted);font-size:12px}
+    .hide{display:none}
+    .flex{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .kpi .box{background:var(--card-2);border:1px solid var(--border);border-radius:12px;padding:12px;text-align:center}
+    .kpi .box h3{margin:6px 0 0;font-size:22px}
+    .sep{height:1px;background:linear-gradient(90deg,transparent,#1d293a,transparent);margin:14px 0}
+    .badge{font-size:11px;background:#152238;border:1px solid #22324d;padding:4px 8px;border-radius:999px;color:#a1b7de}
+    .list{display:grid;gap:10px}
+    .list .li{padding:10px 12px;border:1px dashed #263448;border-radius:10px;background:rgba(21,34,56,.35)}
+    .callout{padding:10px 12px;border-radius:12px;background:#0f1b2a;border:1px solid #22324d}
+    .right{justify-content:flex-end}
+    .center{text-align:center}
+    .small{font-size:12px}
+    .footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--muted)}
+    .sr{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+
+    /* Gate overlay */
+    #gate{position:fixed;inset:0;background:#0b111a;display:grid;place-items:center;padding:24px}
+    #gate .panel{max-width:420px;width:100%;background:linear-gradient(180deg,#0e1521,#0c111a);border:1px solid #1f2a3a;border-radius:14px;box-shadow:var(--shadow);padding:18px}
+    #gate h1{font-size:18px;margin:0 0 8px}
+    #gate p{margin:0 0 12px;color:#98a2b3}
+    #gate input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #1f2a3a;background:#0c121c;color:#e6edf3}
+    #gate button{margin-top:10px}
+    #gate .small{margin-top:10px;color:#7f8ea3}
+  </style>
+  <script defer src="../_shared/gate.js"></script>
+</head>
+<body>
+  <!-- Password Gate -->
+  <div id="gate" aria-modal="true" role="dialog" aria-labelledby="gtitle" aria-describedby="gdesc">
+    <div class="panel">
+      <h1 id="gtitle">Private proposal</h1>
+      <p id="gdesc">Enter the access code provided under NDA to view this page.</p>
+      <label class="sr" for="gpass">Access code</label>
+      <input id="gpass" type="password" inputmode="latin" autocomplete="off" placeholder="Access code" />
+      <button id="gunlock">Unlock</button>
+      <div id="gmsg" class="small" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- The app is hidden until unlocked -->
+  <div id="app" class="wrap" hidden>
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>SMCG Agents for Junior Explorers</h1>
+          <div class="tag">Proof‑of‑Concept • Permit • Sampling • QA/QC • Reporting</div>
+        </div>
+      </div>
+      <nav role="tablist" aria-label="Agent tabs">
+        <button class="tab active" data-tab="home" role="tab" aria-selected="true">Home</button>
+        <button class="tab" data-tab="permit" role="tab">Permit Agent</button>
+        <button class="tab" data-tab="sampling" role="tab">Sampling Agent</button>
+        <button class="tab" data-tab="qaqc" role="tab">QA/QC Agent</button>
+        <button class="tab" data-tab="reporting" role="tab">Reporting Agent</button>
+      </nav>
+    </header>
+
+    <!-- Original content from your demo (unchanged aside from title/noindex and container id) -->
+    <section id="home" class="tabpane">
+      <div class="hero">
+        <div class="card"><div class="inner">
+          <h2>AI agents that make a 5‑person team feel like 30</h2>
+          <p class="muted">This click‑through demo shows how SMCG agents reduce admin, risk, and lag time for juniors. Each agent is modular and can be deployed independently, then unified in a single dashboard.</p>
+          <div class="kpi" aria-label="impact metrics">
+            <div class="box"><div class="badge">Permits</div><h3>▼ 80%</h3><div class="small muted">Cycle time</div></div>
+            <div class="box"><div class="badge">Sampling</div><h3>▼ 70%</h3><div class="small muted">Admin effort</div></div>
+            <div class="box"><div class="badge">QA/QC</div><h3>▲ 3×</h3><div class="small muted">Issue detection</div></div>
+            <div class="box"><div class="badge">Reporting</div><h3>▼ 60%</h3><div class="small muted">Prep time</div></div>
+          </div>
+          <div class="sep"></div>
+          <div class="list">
+            <div class="li">✅ <strong>Grounded outputs</strong> via Retrieval‑Augmented Generation (citations to jurisdiction packs)</div>
+            <div class="li">✅ <strong>Human‑in‑the‑loop</strong>: approvals before emails, submissions, or purchases</div>
+            <div class="li">✅ <strong>Audit‑ready</strong>: every step logged with sources and templates</div>
+          </div>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h2>What you'll see</h2>
+          <ol class="muted">
+            <li>Permit Agent survey → auto‑drafted application + email preview</li>
+            <li>Sampling Agent → manifest and courier booking draft</li>
+            <li>QA/QC Agent → Z‑score flags and summary text</li>
+            <li>Reporting Agent → news release paragraph draft</li>
+          </ol>
+          <div class="callout small">This is a non‑operational mock for proposal/demo purposes. No real emails are sent.</div>
+        </div></div>
+      </div>
+      <div class="footer">
+        <div>© SMCG Consulting — Small to Mid Cap Geoscience Consultants</div>
+        <div class="flex"><span class="pill">Agentic AI</span><span class="pill">LRM Planner</span><span class="pill">RAG</span><span class="pill">MCP Tools</span><span class="pill">MoE</span></div>
+      </div>
+    </section>
+
+    <!-- PERMIT AGENT -->
+    <section id="permit" class="tabpane hide">
+      <div class="card"><div class="inner">
+        <h2>Permit Agent</h2>
+        <p class="muted">Answer a few questions. The agent drafts an application and a regulator email with citations to local guidance. (Mocked data.)</p>
+        <form id="permit-form" class="grid" onsubmit="return false;">
+          <div class="row">
+            <div>
+              <label for="jur">Jurisdiction</label>
+              <select id="jur" required>
+                <option value="NWT">Northwest Territories (CAN)</option>
+                <option value="NL">Newfoundland & Labrador (CAN)</option>
+                <option value="WA">Western Australia (AUS)</option>
+              </select>
+            </div>
+            <div>
+              <label for="activity">Activity</label>
+              <select id="activity">
+                <option>Helicopter-supported core drilling</option>
+                <option>Backpack drilling</option>
+                <option>Trenching with excavator</option>
+                <option>Soil/rock sampling only</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="duration">Program duration (days)</label>
+              <input type="number" id="duration" value="30" min="1" />
+            </div>
+            <div>
+              <label for="crew">Crew size</label>
+              <input type="number" id="crew" value="8" min="1" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="fuel">Fuel storage on site?</label>
+              <select id="fuel"><option>Yes</option><option>No</option></select>
+            </div>
+            <div>
+              <label for="water">Water use (drilling)?</label>
+              <select id="water"><option>Yes</option><option>No</option></select>
+            </div>
+          </div>
+          <div>
+            <label for="loc">Project location (lat/long or NTS)</label>
+            <input id="loc" placeholder="e.g., 62.45N, -113.5W (NTS 85I)" />
+          </div>
+          <div>
+            <label for="desc">Brief description</label>
+            <textarea id="desc" rows="3" placeholder="3 drill pads, 600 m total, helicopter supported"></textarea>
+          </div>
+          <div class="flex right">
+            <button class="secondary" onclick="resetPermit()">Reset</button>
+            <button onclick="generatePermit()">Generate Draft</button>
+          </div>
+        </form>
+      </div></div>
+
+      <div id="permit-output" class="grid cols-2 hide" aria-live="polite">
+        <div class="card"><div class="inner">
+          <h3>Draft Application (Preview)</h3>
+          <pre id="permit-doc" class="mono" style="white-space:pre-wrap"></pre>
+          <div class="flex right">
+            <button class="secondary" onclick="copyText('permit-doc')">Copy text</button>
+            <button onclick="printSection('permit-doc')">Print / Save PDF</button>
+          </div>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h3>Email to Regulator (Approval Required)</h3>
+          <pre id="permit-email" class="mono" style="white-space:pre-wrap"></pre>
+          <div class="flex right"><button class="secondary" onclick="copyText('permit-email')">Copy email</button></div>
+          <div class="sep"></div>
+          <h4>Grounding (RAG) – Citations</h4>
+          <ul id="permit-cites" class="small muted"></ul>
+          <div class="callout small">These citations are illustrative. In production, they’d deep‑link to your jurisdiction pack and stored PDFs with section‑level anchors.</div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- SAMPLING/LOGISTICS AGENT -->
+    <section id="sampling" class="tabpane hide">
+      <div class="card"><div class="inner">
+        <h2>Sampling & Logistics Agent</h2>
+        <p class="muted">Create a shipment manifest and a courier booking draft. (Mock.)</p>
+        <form class="grid" onsubmit="return false;">
+          <div class="row">
+            <div>
+              <label for="samples">Number of samples</label>
+              <input id="samples" type="number" value="300" min="1" />
+            </div>
+            <div>
+              <label for="lab">Lab</label>
+              <select id="lab"><option>ALS Vancouver</option><option>SGS Lakefield</option><option>Actlabs Thunder Bay</option></select>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="pickup">Pickup location</label>
+              <input id="pickup" placeholder="Camp cache at 62.5N, -113.4W" />
+            </div>
+            <div>
+              <label for="method">Method suite</label>
+              <select id="method"><option>Au-ICP22 + ME-MS61</option><option>U3O8 – ICP-MS</option><option>Cu/Zn – AA</option></select>
+            </div>
+          </div>
+          <div class="flex right">
+            <button class="secondary" onclick="resetSampling()">Reset</button>
+            <button onclick="generateManifest()">Generate Manifest</button>
+          </div>
+        </form>
+      </div></div>
+      <div id="sampling-output" class="grid cols-2 hide" aria-live="polite">
+        <div class="card"><div class="inner">
+          <h3>Shipment Manifest (Preview)</h3>
+          <pre id="manifest" class="mono" style="white-space:pre-wrap"></pre>
+          <div class="flex right"><button class="secondary" onclick="copyText('manifest')">Copy</button></div>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h3>Courier Booking (Draft)</h3>
+          <pre id="courier" class="mono" style="white-space:pre-wrap"></pre>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- QAQC AGENT -->
+    <section id="qaqc" class="tabpane hide">
+      <div class="card"><div class="inner">
+        <h2>QA/QC Guardian</h2>
+        <p class="muted">Upload a CSV (or pretend you did) and see flagged issues with ready‑to‑paste summary text. (Mock rules.)</p>
+        <div class="flex">
+          <input type="file" id="qfile" accept=".csv" />
+          <button onclick="runQAQC()">Run QA/QC</button>
+        </div>
+      </div></div>
+      <div id="qaqc-output" class="grid cols-2 hide" aria-live="polite">
+        <div class="card"><div class="inner">
+          <h3>Flags</h3>
+          <ul id="flags" class="list"></ul>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h3>Summary (Paste into report)</h3>
+          <pre id="qsummary" class="mono" style="white-space:pre-wrap"></pre>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- REPORTING AGENT -->
+    <section id="reporting" class="tabpane hide">
+      <div class="card"><div class="inner">
+        <h2>Reporting Assistant</h2>
+        <p class="muted">Turn assay highlights into a compliant, investor‑ready paragraph. (Mock.)</p>
+        <form class="grid" onsubmit="return false;">
+          <div class="row">
+            <div>
+              <label for="best">Best interval</label>
+              <input id="best" placeholder="12.3 m @ 2.1 g/t Au from 45.0 m" />
+            </div>
+            <div>
+              <label for="context">Context</label>
+              <input id="context" placeholder="Step-out 100 m SE of Main Zone" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="qap">QA/QC status</label>
+              <select id="qap"><option>All controls within tolerance</option><option>Minor failures, re-assay in progress</option></select>
+            </div>
+            <div>
+              <label for="caveat">Caveat</label>
+              <select id="caveat"><option>Subject to verification and data validation</option><option>Preliminary; not sufficient for resource estimation</option></select>
+            </div>
+          </div>
+          <div class="flex right">
+            <button class="secondary" onclick="resetReporting()">Reset</button>
+            <button onclick="genNR()">Generate Paragraph</button>
+          </div>
+        </form>
+      </div></div>
+      <div id="nr-output" class="card hide"><div class="inner">
+        <h3>Draft Paragraph</h3>
+        <pre id="nr" class="mono" style="white-space:pre-wrap"></pre>
+      </div></div>
+    </section>
+
+    <div class="foot">Demo only • No back‑end services • All outputs are placeholders to illustrate UX and impact</div>
+  </div>
+
+  <script>
+    // Tab switching
+    const tabs=[...document.querySelectorAll('.tab')];
+    const panes={...Object.fromEntries([...document.querySelectorAll('.tabpane')].map(p=>[p.id,p]))};
+    tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');Object.values(panes).forEach(p=>p.classList.add('hide')); panes[t.dataset.tab].classList.remove('hide');}));
+
+    // Utilities
+    function copyText(id){const el=document.getElementById(id);navigator.clipboard.writeText(el.innerText)}
+    function printSection(id){const w=window.open('','PRINT','height=650,width=900'); w.document.write('<pre style="font-family:ui-monospace,monospace;white-space:pre-wrap">'+document.getElementById(id).innerText+'</pre>'); w.document.close(); w.focus(); w.print(); w.close();}
+
+    // PERMIT AGENT
+    function resetPermit(){document.getElementById('permit-form').reset();document.getElementById('permit-output').classList.add('hide')}
+    function generatePermit(){
+      const jur=v('jur'), act=v('activity'), dur=v('duration'), crew=v('crew'), fuel=v('fuel'), water=v('water'), loc=v('loc'), desc=v('desc');
+      const title = `Application: ${act} — ${jur}`;
+      const body = [
+        `PROJECT: ${desc||act}`,
+        `LOCATION: ${loc||'TBD'}`,
+        `DURATION: ${dur} days | CREW: ${crew}`,
+        `FUEL STORAGE: ${fuel} | WATER USE: ${water}`,
+        '',
+        'ATTACHMENTS:',
+        '- Activity plan & maps',
+        '- Spill response plan (if fuel stored)',
+        '- Wildlife & heritage safeguards',
+        '- Land access/authorization evidence',
+        '',
+        'DECLARATION:',
+        'The applicant agrees to comply with applicable regulations and conditions.'
+      ].join('\n');
+      const cites = mockCitations(jur, {fuel,water,act});
+      const email = [
+        'To: regulator@example.gov',
+        `Subject: ${title}`,
+        '',
+        'Dear Regulator,',
+        `Please find attached our application for ${act.toLowerCase()} at ${loc||'the project area'}.`,
+        `Program length ${dur} days with ${crew} staff. Fuel storage: ${fuel}. Water use: ${water}.`,
+        'We have included maps and mitigation measures as per cited guidance below.',
+        '',
+        'Kind regards,',
+        'SMCG (on behalf of Client)'
+      ].join('\n');
+      setText('permit-doc', title+'\n\n'+body);
+      setText('permit-email', email);
+      const ul=document.getElementById('permit-cites'); ul.innerHTML='';
+      cites.forEach(c=>{const li=document.createElement('li'); li.innerHTML = `<span class="badge">${c.id}</span> <span>${c.text}</span>`; ul.appendChild(li)});
+      document.getElementById('permit-output').classList.remove('hide');
+    }
+    function mockCitations(jur, ctx){
+      if(jur==='NWT') return [
+        {id:'NWT-LUR §15.2', text:'Fuel caches > 400L require spill contingency & secondary containment.'},
+        {id:'NWT-Water §7.1', text:'Water use for drilling requires intake screening and daily logs.'},
+        {id:'WMG 2021 §3.4', text:'Helicopter fueling must be 100 m from water bodies.'}
+      ];
+      if(jur==='NL') return [
+        {id:'NL-EnvOps §9.3', text:'Excavation/trenching requires erosion and sediment control measures.'},
+        {id:'NL-Water §12.2', text:'Drill water intake rates and discharge must be recorded and reported.'}
+      ];
+      return [
+        {id:'WA-Mines Act §18', text:'Program of Work required for drilling; heritage surveys as applicable.'},
+        {id:'WA-Env §22', text:'Fuel storage > 1000L requires bunding to AS 1940.'}
+      ];
+    }
+
+    // SAMPLING
+    function resetSampling(){document.getElementById('sampling-output').classList.add('hide')}
+    function generateManifest(){
+      const n=+v('samples'), lab=v('lab'), pick=v('pickup'), method=v('method');
+      const boxes=Math.ceil(n/50), weight=(n*0.6).toFixed(1);
+      const manifest=[
+        `LAB: ${lab}`,
+        `PICKUP: ${pick}`,
+        `METHODS: ${method}`,
+        `SAMPLES: ${n} | BOXES: ${boxes} | EST. WEIGHT: ${weight} kg`,
+        '',
+        'CONTENTS (first 5 boxes):',
+        ...Array.from({length:Math.min(5,boxes)},(_,i)=>`  • Box ${i+1}: Samples ${(i*50+1)}–${Math.min((i+1)*50,n)}`)
+      ].join('\n');
+      const courier=`Courier draft:\n- Preferred: Air freight from ${pick} (next-day)\n- Pickup window: 10:00–14:00 local\n- Special handling: Keep dry; fragile labels on all boxes\n- Contact: logistics@smcg.consulting`;
+      setText('manifest', manifest); setText('courier', courier);
+      document.getElementById('sampling-output').classList.remove('hide');
+    }
+
+    // QAQC
+    function runQAQC(){
+      const flagsEl=document.getElementById('flags'); flagsEl.innerHTML='';
+      const flags=[
+        '2 of 24 standards outside ±2σ (AUSCRM-123 @ batches 7, 12)',
+        'High blank detected (>5x MDL) in batch 9',
+        '8% RPD failure rate on duplicates (goal <5%)'
+      ];
+      flags.forEach(f=>{const li=document.createElement('li'); li.className='li'; li.textContent='⚠️ '+f; flagsEl.appendChild(li)});
+      const summary = `QA/QC Review\n\n• Control materials: acceptable with minor exceptions.\n• Standards: 2/24 outside ±2σ; impacted intervals flagged for re-assay.\n• Blanks: one elevated blank; adjacent samples quarantined pending check assays.\n• Duplicates: 8% RPD failure; monitor for sample heterogeneity.\n\nConclusion: Results considered decision-quality after re-assays; data release allowed with caveats.`;
+      setText('qsummary', summary);
+      document.getElementById('qaqc-output').classList.remove('hide');
+    }
+
+    // REPORTING
+    function resetReporting(){document.getElementById('nr-output').classList.add('hide')}
+    function genNR(){
+      const best=v('best')||'12.3 m @ 2.1 g/t Au from 45.0 m', ctx=v('context')||'Step-out drilling at Main Zone', qa=v('qap'), cav=v('caveat');
+      const nr = `Highlights include ${best}. These results ${ctx.toLowerCase()} and continue to demonstrate the potential to expand mineralization along strike and at depth. QA/QC: ${qa}. ${cav}.`;
+      setText('nr', nr); document.getElementById('nr-output').classList.remove('hide');
+    }
+
+    // helpers
+    function v(id){return document.getElementById(id).value}
+    function setText(id, txt){document.getElementById(id).innerText=txt}
+  </script>
+</body>
+</html>
