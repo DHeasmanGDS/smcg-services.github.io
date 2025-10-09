@@ -34,13 +34,13 @@
           <span class="sr-only">Toggle menu</span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </button>
 			<div id="site-menu" class="menu" role="navigation">
-			  <a href="/">Home</a>
-			  <a href="/services.html">Services</a>
-			  <a href="/work.html">Work</a>
-			  <a href="/team.html">Team</a>
-			  <a href="/#about">About</a>
-			  <a href="/#contact">Contact</a>
-			  <a href="/#bhp">BHP Xplor</a>
+			  <a href="index.html">Home</a>
+			  <a href="services.html">Services</a>
+			  <a href="work.html">Work</a>
+			  <a href="team.html">Team</a>
+			  <a href="index.html#about">About</a>
+			  <a href="index.html#contact">Contact</a>
+			  <a href="index.html#bhp">BHP Xplor</a>
 			</div>
 
       </div>
@@ -162,18 +162,18 @@
     });
   </script>
   
-  <script>
-  (function(){
-    const here = location.pathname.replace(/\/+$/,'') || '/';
-    document.querySelectorAll('.menu a').forEach(a => {
-      const url = new URL(a.href, location.origin);
-      const path = url.pathname.replace(/\/+$/,'') || '/';
-      if (path === here) a.setAttribute('aria-current','page');
-      // Special case: homepage section jumps shouldn't get page highlight
-      if (here === '/' && url.hash) a.removeAttribute('aria-current');
-    });
-  })();
-  </script>
+	<script>
+	(function(){
+	  const here = location.pathname.split('/').pop() || 'index.html';
+	  document.querySelectorAll('.menu a').forEach(a => {
+		const path = a.getAttribute('href').split('#')[0] || 'index.html';
+		if (path === here) a.setAttribute('aria-current','page');
+		// If we're on the homepage, don't highlight the section links as "page"
+		if (here === 'index.html' && a.hash) a.removeAttribute('aria-current');
+	  });
+	})();
+	</script>
+
 
 </body>
 </html>

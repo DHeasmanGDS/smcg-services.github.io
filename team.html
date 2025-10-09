@@ -1,82 +1,179 @@
-<!-- =============================
-FILE: team.html (Public) – lists Drew; references an unnamed senior partner to avoid conflicts; includes ethics note.
-============================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Team – SMCG</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    :root{--primary-color:#002244;--accent-color:#ffcc00;--background-color:#f4f4f4;--text-color:#333;--card:#fff;--muted:#6b7280;--ring:rgba(0,34,68,0.08)}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Roboto',sans-serif;color:var(--text-color);background:var(--background-color);line-height:1.6}
-    header{background:linear-gradient(180deg,#002244 0%, #001933 100%);color:#fff;padding:3rem 1rem 2.25rem;text-align:center}
-    header h1{margin:0;font-size:2.2rem}
-    header p{margin:0.5rem 0 0;color:#e5e7eb}
-    nav{background:#001933;display:flex;justify-content:center;gap:1.5rem;padding:0.75rem 1rem;position:sticky;top:0;z-index:10}
-    nav a{color:#fff;text-decoration:none;font-weight:500;font-size:0.98rem;padding:0.4rem 0.6rem;border-radius:8px}
-    nav a:hover{color:var(--accent-color);background:rgba(255,255,255,0.05)}
-    main{max-width:1100px;margin:2rem auto;padding:0 1rem}
-    section{background:var(--card);border-radius:12px;padding:2rem;margin-bottom:1.5rem;box-shadow:0 6px 18px var(--ring)}
-    h2{color:var(--primary-color);margin-top:0;font-size:1.6rem}
-    .grid{display:grid;gap:1.25rem}
-    .member{display:grid;gap:1rem;align-items:center}
-    @media(min-width:640px){.member{grid-template-columns:140px 1fr}}
-    .avatar{width:140px;height:140px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f1f5f9;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.08)}
-    .avatar img{width:100%;height:100%;object-fit:cover}
-    .muted{color:var(--muted)}
-    .pill{display:inline-block;background:#f1f5f9;color:#0f172a;border-radius:999px;padding:0.28rem 0.7rem;font-size:0.85rem;margin:0 0.4rem 0.4rem 0}
-    .btn{display:inline-block;background:var(--primary-color);color:#fff;text-decoration:none;padding:0.6rem 1rem;border-radius:10px;font-weight:700}
-    .btn.secondary{background:#fff;color:var(--primary-color);border:1px solid #fff}
-    .note{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:0.9rem}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Exploration expertise and applied data science. Meet the SMCG team and our senior specialist network." />
+  <meta name="theme-color" content="#002244" />
+
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/assets/geo-texture.webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=1" />
 </head>
 <body>
-  <header>
-    <h1>Our Team</h1>
-    <p>Exploration expertise, data science depth, and practical delivery.</p>
-  </header>
+  <a href="#main" class="sr-only">Skip to content</a>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="index.html#services">Services</a>
-    <a href="team.html">Team</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
+  <!-- Topbar -->
+  <div class="topbar">
+    <nav class="nav" aria-label="Primary">
+      <div class="inner container">
+        <!-- Brand -->
+        <a class="brand" href="index.html" aria-label="SMCG home">
+          <img class="brand-mark" src="assets/logo.webp" alt="" />
+          <span class="brand-word">SMCG</span>
+        </a>
+        <!-- Mobile toggle -->
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu">
+          <span class="sr-only">Toggle menu</span>
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <!-- Menu -->
+        <div id="site-menu" class="menu" role="navigation">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="work.html">Work</a>
+          <a href="team.html">Team</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="index.html#bhp">BHP Xplor</a>
+        </div>
+      </div>
+    </nav>
+  </div>
 
-  <main>
-    <section>
-      <h2>Core Team</h2>
-      <div class="member">
-        <div class="avatar"><img src="drew.jpg" alt="Photo of Drew Heasman" /></div>
-        <div>
-          <h3 style="margin:0 0 0.25rem">Drew Heasman</h3>
-          <p class="muted" style="margin:0.25rem 0 0.6rem">Geoscience data scientist with 20+ years in exploration. Builds machine‑learning‑ready data systems, prospectivity & anomaly‑detection workflows, and decision support. Director‑level leadership; international award‑winning in geodata science; MSc research in geoscience & text mining.</p>
-          <div style="margin:0.5rem 0 0.75rem">
-            <span class="pill">Exploration Data Systems</span>
-            <span class="pill">Prospectivity (ML + Systems)</span>
-            <span class="pill">Anomaly Detection</span>
-            <span class="pill">Text Mining / NLP</span>
+  <!-- Hero (textured band + glass) -->
+  <section class="hero-band">
+    <header class="hero container" role="banner">
+      <div class="hero-glass">
+        <h1>Team</h1>
+        <p>Exploration leadership, data-science depth, and practical delivery — scaled to lean teams.</p>
+      </div>
+    </header>
+  </section>
+
+  <main id="main" class="container" tabindex="-1">
+    <!-- Core Team -->
+    <section aria-labelledby="core-title">
+      <h2 id="core-title">Core team</h2>
+
+      <div class="card">
+        <div class="grid cols-2" style="align-items:center">
+          <div style="display:flex;gap:1rem;align-items:center">
+            <div style="width:120px;height:120px;border-radius:50%;overflow:hidden;background:#f1f5f9;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.08)">
+              <!-- Replace with your asset path -->
+              <img src="assets/drew.jpg" alt="Photo of Drew Heasman" style="width:100%;height:100%;object-fit:cover" />
+            </div>
+            <div>
+              <h3 style="margin:.1rem 0 .2rem">Drew Heasman</h3>
+              <div class="muted">Geoscience data scientist · Director-level leadership</div>
+            </div>
           </div>
-          <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
-            <a class="btn" href="bio.html">View Bio</a>
-            <a class="btn secondary" href="mailto:dheasman@smcg-services.com">Email</a>
+          <div>
+            <p class="muted" style="margin:.25rem 0 .6rem">
+              20+ years across greenfields to advanced projects. Builds <strong>ML-ready data systems</strong>,
+              <strong>prospectivity & anomaly-detection workflows</strong>, and <strong>decision support</strong> that scale to lean teams.
+              International award-winning applications of ML/AI to exploration; MSc research in geoscience & text mining.
+            </p>
+            <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+              <span class="trust">Exploration data systems</span>
+              <span class="trust">Prospectivity (ML + Systems)</span>
+              <span class="trust">Anomaly detection</span>
+              <span class="trust">Text mining / NLP</span>
+            </div>
+            <div class="cta" style="margin-top:.8rem">
+              <a class="btn" href="drew_bio.html">View bio</a>
+              <a class="btn secondary" href="mailto:dheasman@smcg-services.com">Email</a>
+            </div>
           </div>
         </div>
       </div>
-
-      <hr style="border:none;border-top:1px solid #e5e7eb;margin:1.5rem 0" />
-
-      <h2>Our Network</h2>
-      <p class="muted">SMCG engagements are delivered by Drew and a small network of senior specialists. This includes an <em>unnamed co‑lead</em> — a senior exploration executive with international uranium and precious metals experience — who contributes expertise on select projects. To avoid conflicts of interest and preserve confidentiality, we do not list affiliations or publish full partner bios publicly.</p>
-      <div class="note" role="note"><strong>Ethics & conflicts.</strong> SMCG separates consulting work from any partner’s full‑time employment and observes client confidentiality, disclosure restrictions, and NDAs. Detailed partner bios are available in password‑protected proposal portals by invitation.</div>
     </section>
 
-    <p class="muted" style="margin-top:-0.25rem">Engagements are scoped individually. See bios and innovation areas for capabilities or request a proposal.</p>
+    <!-- Network / Confidential partners -->
+    <section aria-labelledby="network-title">
+      <h2 id="network-title">Our network</h2>
+      <div class="card">
+        <p class="muted" style="margin:.25rem 0 .6rem">
+          SMCG engagements are delivered by Drew and a small network of senior specialists.
+        </p>
+        <div class="notice" role="note" aria-label="Ethics & conflicts">
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <strong>Ethics & conflicts.</strong> We separate consulting work from any partner’s full-time employment and
+            observe client confidentiality, disclosure restrictions, and NDAs.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What we bring (compact, consistent with About) -->
+    <section aria-labelledby="bring-title">
+      <h2 id="bring-title">What we bring</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <strong>Exploration-first judgement</strong>
+          <p class="muted" style="margin:.4rem 0 0">Mineral systems thinking grounded in real project constraints.</p>
+        </div>
+        <div class="card">
+          <strong>Computer-science depth</strong>
+          <p class="muted" style="margin:.4rem 0 0">Data engineering, ML/AI, and software practices that scale.</p>
+        </div>
+        <div class="card">
+          <strong>Operational delivery</strong>
+          <p class="muted" style="margin:.4rem 0 0">Reproducible pipelines, clear handover, team enablement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section aria-labelledby="cta-title">
+      <h2 id="cta-title">Plan a project</h2>
+      <p class="muted">Tell us your goals, datasets, and timeline. We’ll scope a lean pilot that proves value before you scale.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:contact@smcg-services.com?subject=Project%20scope%20request">Start a project</a>
+        <a class="btn secondary" href="services.html">View services</a>
+      </div>
+    </section>
   </main>
 
   <footer>&copy; 2025 SMCG – Small to Mid Cap Geoscience Consultants</footer>
+
+  <!-- Small scripts (same as other pages) -->
+  <script>
+    // Mobile toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('site-menu');
+    if (toggle && menu){
+      toggle.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+    // Add a shadow when scrolling
+    const nav = document.querySelector('.nav');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking){
+        window.requestAnimationFrame(() => {
+          nav.classList.toggle('scrolled', window.scrollY > 2);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    // Highlight current page in nav
+    (function(){
+      const here = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.menu a').forEach(a => {
+        const path = (a.getAttribute('href') || '').split('#')[0] || 'index.html';
+        if (path === here) a.setAttribute('aria-current','page');
+        if (here === 'index.html' && a.hash) a.removeAttribute('aria-current');
+      });
+    })();
+  </script>
 </body>
 </html>

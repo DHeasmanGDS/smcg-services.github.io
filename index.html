@@ -18,8 +18,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css?v=1">
-
 </head>
+
 <body>
   <a href="#main" class="sr-only">Skip to content</a>
 
@@ -39,17 +39,15 @@
 			<!-- simple hamburger -->
 			<span class="bar"></span><span class="bar"></span><span class="bar"></span>
 		  </button>
-
-		<div id="site-menu" class="menu" role="navigation">
-		  <a href="/">Home</a>
-		  <a href="services.html">Services</a>
-		  <a href="work.html">Work</a>
-		  <a href="team.html">Team</a>
-		  <a href="/#about">About</a>
-		  <a href="/#contact">Contact</a>
-		  <a href="/#bhp">BHP Xplor</a>
-		</div>
-
+			<div id="site-menu" class="menu" role="navigation">
+			  <a href="index.html">Home</a>
+			  <a href="services.html">Services</a>
+			  <a href="work.html">Work</a>
+			  <a href="team.html">Team</a>
+			  <a href="index.html#about">About</a>
+			  <a href="index.html#contact">Contact</a>
+			  <a href="index.html#bhp">BHP Xplor</a>
+			</div>
 		</div>
 	  </nav>
 	</div>
@@ -75,7 +73,6 @@
   </div>
 
   <main id="main" class="container" tabindex="-1">
-
     <!-- BHP Xplor Highlight -->
     <span id="bhp" class="anchor"></span>
     <section class="band-bhp" aria-labelledby="bhp-title">
@@ -218,11 +215,12 @@
 	</section>
 
 	<!-- CTA -->
+	<span id="contact" class="anchor"></span>
 	<section aria-labelledby="cta-title">
-	  <h2 id="cta-title">Plan a project</h2>
+	  <h2 id="cta-title">Contact Us</h2>
 	  <p class="muted">Tell us your goals, datasets, and timeline. We’ll scope a lean project that proves value before you scale.</p>
 	  <div class="cta">
-		<a class="btn" href="mailto:contact@smcg-services.com?subject=Project%20scope%20request">Start a project</a>
+		<a class="btn" href="mailto:contact@smcg-services.com?subject=Project%20scope%20request">Email us</a>
 		<a class="btn secondary" href="#about">Why SMCG?</a>
 	  </div>
 	</section>
@@ -288,17 +286,16 @@
 	}
 	</script>
 	
-  <script>
-  (function(){
-    const here = location.pathname.replace(/\/+$/,'') || '/';
-    document.querySelectorAll('.menu a').forEach(a => {
-      const url = new URL(a.href, location.origin);
-      const path = url.pathname.replace(/\/+$/,'') || '/';
-      if (path === here) a.setAttribute('aria-current','page');
-      // Special case: homepage section jumps shouldn't get page highlight
-      if (here === '/' && url.hash) a.removeAttribute('aria-current');
-    });
-  })();
-  </script>
+	<script>
+	(function(){
+	  const here = location.pathname.split('/').pop() || 'index.html';
+	  document.querySelectorAll('.menu a').forEach(a => {
+		const path = a.getAttribute('href').split('#')[0] || 'index.html';
+		if (path === here) a.setAttribute('aria-current','page');
+		// If we're on the homepage, don't highlight the section links as "page"
+		if (here === 'index.html' && a.hash) a.removeAttribute('aria-current');
+	  });
+	})();
+	</script>
 </body>
 </html>
