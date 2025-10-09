@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Work – SMCG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Anonymized case notes and selected outcomes from SMCG projects in exploration data, prospectivity, and decision support." />
+  <meta name="theme-color" content="#002244" />
+
+  <!-- fonts first -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="preload" as="image" href="/assets/geo-texture.webp" fetchpriority="high">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+
+<body>
+  <a href="#main" class="sr-only">Skip to content</a>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <nav class="nav" aria-label="Primary">
+      <div class="inner container">
+        <a class="brand" href="index.html" aria-label="SMCG home">
+          <img class="brand-mark" src="assets/logo.webp" alt="" />
+          <span class="brand-word">SMCG</span>
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu">
+          <span class="sr-only">Toggle menu</span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+			<div id="site-menu" class="menu" role="navigation">
+			  <a href="/">Home</a>
+			  <a href="/services.html">Services</a>
+			  <a href="/work.html">Work</a>
+			  <a href="/team.html">Team</a>
+			  <a href="/#about">About</a>
+			  <a href="/#contact">Contact</a>
+			  <a href="/#bhp">BHP Xplor</a>
+			</div>
+
+      </div>
+    </nav>
+  </div>
+
+	<!-- Hero (textured band) -->
+	<section class="hero-band">
+	  <header class="hero container" role="banner">
+		<div class="hero-glass">
+		  <h1>Work</h1>
+		  <p>
+			Anonymized case notes and selected outcomes. Detailed studies and proposal
+			microsites are shared by invitation under NDA.
+		  </p>
+		</div>
+	  </header>
+	</section>
+
+  <main id="main" class="container" tabindex="-1">
+    <!-- Selected outcomes -->
+    <section aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title">Selected outcomes</h2>
+      <ul class="clean" style="columns:2;gap:2rem;max-width:900px">
+        <li class="muted">~60% less data prep via ML-ready data systems</li>
+        <li class="muted">8 drill-ready targets prioritized with uncertainty bands</li>
+        <li class="muted">Campaign-consistent anomaly detection across multi-element data</li>
+        <li class="muted">Faster desktop studies through text/knowledge mining</li>
+      </ul>
+    </section>
+
+    <!-- Compact anonymized examples (collapsible) -->
+    <section aria-labelledby="examples-title">
+      <h2 id="examples-title">Anonymized case notes</h2>
+
+      <details class="card">
+        <summary><strong>Exploration data system (MX Deposit-centric)</strong></summary>
+        <div class="muted" style="font-size:.95rem;margin-top:.4rem">~10 days · Architecture, migration, QA/QC automation</div>
+        <ul class="clean">
+          <li>Unified drill, geochem, geophysics, and mapping schema</li>
+          <li>Validation rules & automated checks (overlaps, assay ranges)</li>
+          <li>One-click exports & a lightweight reporting dashboard</li>
+        </ul>
+        <p class="muted" style="font-size:.95rem">Outcome: ~60% less data prep; reproducible analysis-ready datasets.</p>
+      </details>
+
+      <details class="card">
+        <summary><strong>Prospectivity & target ranking</strong></summary>
+        <div class="muted" style="font-size:.95rem;margin-top:.4rem">~15 days · Hybrid ML + Mineral Systems</div>
+        <ul class="clean">
+          <li>Integrated structure, geophysics, geochem, and proximity indicators</li>
+          <li>Transparent rankings with feature importance & uncertainty bands</li>
+          <li>Drill-ready shortlists with clear follow-up rationale</li>
+        </ul>
+        <p class="muted" style="font-size:.95rem">Outcome: 8 high-priority targets identified to inform field programs.</p>
+      </details>
+
+      <details class="card">
+        <summary><strong>Anomaly detection & trend analysis</strong></summary>
+        <div class="muted" style="font-size:.95rem;margin-top:.4rem">~12 days · Multi-element screening, QA gating, maps</div>
+        <ul class="clean">
+          <li>Flagged meaningful multi-element anomalies across campaigns</li>
+          <li>Separated signal from lab/processing artefacts with QA checks</li>
+          <li>Mapped trends & interval tables for follow-up</li>
+        </ul>
+        <p class="muted" style="font-size:.95rem">Outcome: New trend surfaced; supported trenching and sample planning.</p>
+      </details>
+
+      <details class="card">
+        <summary><strong>Text & knowledge mining (district synthesis)</strong></summary>
+        <div class="muted" style="font-size:.95rem;margin-top:.4rem">~8 days · Consolidation, key-fact extraction, exec summaries</div>
+        <ul class="clean">
+          <li>Pulled insights from historical & open sources</li>
+          <li>Extracted geology, structure, age, mineralization & location facts</li>
+          <li>Delivered searchable summaries with source links</li>
+        </ul>
+        <p class="muted" style="font-size:.95rem">Outcome: Faster desktop study; clearer inputs for targeting and due diligence.</p>
+      </details>
+    </section>
+
+    <!-- NDA / Access note -->
+    <section aria-labelledby="nda-title">
+      <h2 id="nda-title">Access</h2>
+      <div class="notice" role="note" aria-label="Confidentiality note">
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <strong>Confidential by default.</strong> We don’t list clients or project specifics publicly.
+          Detailed case studies and proposal microsites are shared by invitation under password protection.
+        </div>
+      </div>
+      <div class="cta" style="margin-top:.9rem">
+        <a class="btn" href="mailto:contact@smcg-services.com?subject=Case%20study%20access%20request">Request case study access</a>
+        <a class="btn secondary" href="index.html#bhp">See BHP Xplor proposals</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2025 SMCG – Small to Mid Cap Geoscience Consultants</footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('site-menu');
+    if (toggle && menu){
+      toggle.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+    const nav = document.querySelector('.nav');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking){
+        window.requestAnimationFrame(() => {
+          nav.classList.toggle('scrolled', window.scrollY > 2);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  </script>
+  
+  <script>
+  (function(){
+    const here = location.pathname.replace(/\/+$/,'') || '/';
+    document.querySelectorAll('.menu a').forEach(a => {
+      const url = new URL(a.href, location.origin);
+      const path = url.pathname.replace(/\/+$/,'') || '/';
+      if (path === here) a.setAttribute('aria-current','page');
+      // Special case: homepage section jumps shouldn't get page highlight
+      if (here === '/' && url.hash) a.removeAttribute('aria-current');
+    });
+  })();
+  </script>
+
+</body>
+</html>

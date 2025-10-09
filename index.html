@@ -3,274 +3,302 @@
 <head>
   <meta charset="UTF-8" />
   <title>SMCG – Small to Mid Cap Geoscience Consultants</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SMCG helps explorers build ML-ready data systems, prospectivity workflows, and decision support — with strict client confidentiality." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SMCG helps explorers build ML‑ready data systems, prospectivity workflows, anomaly detection, and decision support — with strict client confidentiality." />
   <meta name="robots" content="index,follow" />
   <meta property="og:title" content="SMCG – Small to Mid Cap Geoscience Consultants" />
-  <meta property="og:description" content="Data-driven discovery for explorers. ML-ready data, prospectivity, anomaly detection. Confidential by default." />
+  <meta property="og:description" content="Data‑driven discovery for explorers. ML‑ready data, prospectivity, anomaly detection. Confidential by default." />
   <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#002244" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="/assets/geo-texture.webp" imagesrcset="/assets/geo-texture.webp 1x" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css?v=1">
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root{
-      --primary-color:#002244;
-      --accent-color:#ffcc00;
-      --background-color:#f4f4f4;
-      --text-color:#333;
-      --card:#fff;
-      --muted:#6b7280;
-      --ring:rgba(0,34,68,0.08);
-      --success:#15803d;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Roboto',sans-serif;color:var(--text-color);background:var(--background-color);line-height:1.6}
-    a{color:var(--primary-color)}
-    header{background:linear-gradient(180deg,#002244 0%, #001933 100%);color:#fff;padding:3rem 1rem 2.25rem;text-align:center}
-    header h1{margin:0;font-size:2.6rem;letter-spacing:0.5px}
-    header p{margin:0.5rem 0 0;color:#e5e7eb}
-    .trustbar{display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
-    .trust{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:0.3rem 0.65rem;font-size:0.85rem}
-    nav{background:#001933;display:flex;justify-content:center;gap:1.5rem;padding:0.75rem 1rem;position:sticky;top:0;z-index:10}
-    nav a{color:#fff;text-decoration:none;font-weight:500;font-size:0.98rem;padding:0.4rem 0.6rem;border-radius:8px}
-    nav a:hover{color:var(--accent-color);background:rgba(255,255,255,0.05)}
-    main{max-width:1100px;margin:2rem auto;padding:0 1rem}
-    section{background:var(--card);border-radius:12px;padding:2rem;margin-bottom:1.5rem;box-shadow:0 6px 18px var(--ring)}
-    h2{color:var(--primary-color);margin-top:0;font-size:1.6rem}
-    .grid{display:grid;gap:1.25rem}
-    @media(min-width:768px){.grid.cols-2{grid-template-columns:1fr 1fr}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    ul.clean{margin:0;padding-left:1.1rem}
-    .muted{color:var(--muted)}
-    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.25rem;box-shadow:0 2px 6px rgba(0,0,0,0.04);position:relative}
-    .badge{position:absolute;top:12px;right:12px;background:#f1f5f9;border:1px solid #e5e7eb;border-radius:999px;padding:0.18rem 0.55rem;font-size:0.75rem;color:#0f172a}
-    .btn{display:inline-block;background:var(--primary-color);color:#fff;text-decoration:none;padding:0.65rem 1rem;border-radius:10px;font-weight:700;letter-spacing:0.2px}
-    .btn:hover{opacity:0.95}
-    .btn.secondary{background:#fff;color:var(--primary-color);border:1px solid var(--primary-color)}
-    .cta{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.75rem}
-    .anchor{position:relative;top:-70px;visibility:hidden}
-    .notice{display:flex;gap:0.6rem;align-items:flex-start;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:0.9rem}
-    .notice .dot{width:10px;height:10px;border-radius:50%;background:var(--success);margin-top:7px}
-    footer{text-align:center;padding:1.25rem;color:#777;font-size:0.9rem}
-  </style>
 </head>
 <body>
-  <header>
-    <h1>SMCG</h1>
-    <p>Small to Mid Cap Geoscience Consultants – Data-driven discovery for explorers</p>
-    <div class="trustbar">
-      <span class="trust">Confidential by default</span>
-      <span class="trust">No public client details</span>
-      <span class="trust">NDA-friendly scoping</span>
-    </div>
-  </header>
+  <a href="#main" class="sr-only">Skip to content</a>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="#innovation">Innovation</a>
-    <a href="#services">Services</a>
-    <a href="team.html">Team</a>
-    <a href="#contact">Contact</a>
-  </nav>
+	<!-- Topbar / Hero -->
+	<div class="topbar">
+	  <nav class="nav" aria-label="Primary">
+		<div class="inner container">
+		  <!-- Brand -->
+		  <a class="brand" href="index.html" aria-label="SMCG home">
+			<img class="brand-mark" src="assets/logo.webp" alt="" />
+			<span class="brand-word">SMCG</span>
+		  </a>
 
-  <main>
-    <!-- INNOVATION FIRST -->
-    <span id="innovation" class="anchor"></span>
-    <section>
-      <h2>Innovation - BHP Xplor(Invitation-Only)</h2>
+		  <!-- Mobile toggle -->
+		  <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu">
+			<span class="sr-only">Toggle menu</span>
+			<!-- simple hamburger -->
+			<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+		  </button>
+
+		<div id="site-menu" class="menu" role="navigation">
+		  <a href="/">Home</a>
+		  <a href="services.html">Services</a>
+		  <a href="work.html">Work</a>
+		  <a href="team.html">Team</a>
+		  <a href="/#about">About</a>
+		  <a href="/#contact">Contact</a>
+		  <a href="/#bhp">BHP Xplor</a>
+		</div>
+
+		</div>
+	  </nav>
+	</div>
+
+	<!-- Hero Section -->
+	<section class="hero-band">
+	  <header class="hero container" role="banner">
+		<div class="hero-glass">
+		  <h1>Empowering explorers to operate at major scale</h1>
+		  <p>SMCG helps junior and mid-cap explorers build the data, AI, and decision-support
+			capabilities once reserved for the majors — turning lean teams into high-impact
+			discovery engines.</p>
+		  <div class="trustbar" role="list" aria-label="Core strengths">
+			<span class="trust" role="listitem">Proven exploration expertise</span>
+			<span class="trust" role="listitem">Practical data-science integration</span>
+			<span class="trust" role="listitem">Confidential, high-trust delivery</span>
+			<span class="trust" role="listitem">Innovation scaled to your resources</span>
+		  </div>
+		</div>
+	  </header>
+	</section>
+
+  </div>
+
+  <main id="main" class="container" tabindex="-1">
+
+    <!-- BHP Xplor Highlight -->
+    <span id="bhp" class="anchor"></span>
+    <section class="band-bhp" aria-labelledby="bhp-title">
+      <div class="bhp-header">
+        <!-- Replace src with your local asset path: assets/bhp-logo.svg -->
+        <img class="bhp-logo" src="assets/bhp-logo.svg" alt="BHP logo" />
+        <div>
+          <div class="kicker">Invitation‑Only</div>
+          <h2 id="bhp-title" style="margin:.15rem 0 0">BHP Xplor – Proposal Microsites</h2>
+        </div>
+        <span class="bhp-chip" aria-label="private access only">Private</span>
+      </div>
+
       <div class="grid cols-2">
         <!-- GeoReason -->
-        <div class="card">
-          <span class="badge">Private</span>
-          <h3 style="margin:0 0 0.25rem">GeoReason</h3>
-          <p class="muted" style="margin-top:0.25rem">
-		  <!--
-            An AI-assisted reasoning engine for exploration. Uses LLMs + NLI to
-            ingest large text corpora (assessment files, reports, papers) and
-            <strong>test hypotheses</strong> — e.g., district or area prospectivity —
-            by extracting facts, reconciling conflicts, and surfacing evidence chains you can audit.
-			-->
-			Proposal #1
-          </p>
-          <div class="cta">
-            <!-- Direct link (will work once you deploy GeoReason to Cloudflare Pages) -->
-            <a class="btn secondary" href="https://proposals.smcg-services.com/georeason/" rel="nofollow noopener">
-              Open private summary (code required)
-            </a>
-            <!-- Request code -->
-            <a class="btn" href="mailto:contact@smcg-services.com?subject=GeoReason%20access%20request&body=Hi%20SMCG%2C%0A%0APlease%20share%20the%20access%20code%20for%20GeoReason.%0A%0AName%3A%0ACompany%3A%0AContext%3A%0A" rel="nofollow">
-              Request access code
-            </a>
+        <article class="card bhp-card" aria-labelledby="georeason-title">
+          <span class="badge" aria-hidden="true">Private</span>
+          <h3 id="georeason-title" class="cs-title">GeoReason</h3>
+          <p class="muted">Proposal #1 — AI‑assisted reasoning engine for exploration. Password shared by invitation following a mutual NDA.</p>
+          <div class="cta bhp-cta">
+            <a class="btn secondary" href="https://proposals.smcg-services.com/georeason/" rel="nofollow noopener">Open private demo</a>
+            <a class="btn" href="mailto:contact@smcg-services.com?subject=GeoReason%20access%20request&body=Hi%20SMCG%2C%0A%0APlease%20share%20the%20access%20code%20for%20GeoReason.%0A%0AName%3A%0ACompany%3A%0AContext%3A%0A" rel="nofollow">Request access code</a>
           </div>
-        </div>
+        </article>
 
         <!-- Agentic -->
-        <div class="card">
-          <span class="badge">Private</span>
-          <h3 style="margin:0 0 0.25rem">Agentic AI for Exploration Workflows</h3>
-          <p class="muted" style="margin-top:0.25rem">
-		  <!--
-            A turnkey assistant that helps juniors run like majors — from early-stage concepts to closure and reclamation.
-            Focused on the “everything else” geologists end up doing: permitting, land admin, logistics, ESG, QA/QC and reporting.
-            Drafts, checks, and coordinates with <strong>human-in-the-loop</strong> control and full audit trails.
-			-->
-			Proposal #2
-          </p>
-          <div class="cta">
-            <a class="btn secondary" href="https://proposals.smcg-services.com/agentic/" rel="nofollow noopener">
-              Open private demo (code required)
-            </a>
-            <a class="btn" href="mailto:contact@smcg-services.com?subject=Agentic%20AI%20access%20request&body=Hi%20SMCG%2C%0A%0APlease%20share%20the%20access%20code%20for%20Agentic%20AI.%0A%0AName%3A%0ACompany%3A%0AContext%3A%0A" rel="nofollow">
-              Request access code
-            </a>
+        <article class="card bhp-card" aria-labelledby="agentic-title">
+          <span class="badge" aria-hidden="true">Private</span>
+          <h3 id="agentic-title" class="cs-title">Agentic AI for Exploration Workflows</h3>
+          <p class="muted">Proposal #2 — A turnkey assistant that helps juniors run like majors. Password shared by invitation following a mutual NDA.</p>
+          <div class="cta bhp-cta">
+            <a class="btn secondary" href="https://proposals.smcg-services.com/agentic/" rel="nofollow noopener">Open private demo</a>
+            <a class="btn" href="mailto:contact@smcg-services.com?subject=Agentic%20AI%20access%20request&body=Hi%20SMCG%2C%0A%0APlease%20share%20the%20access%20code%20for%20Agentic%20AI.%0A%0AName%3A%0ACompany%3A%0AContext%3A%0A" rel="nofollow">Request access code</a>
           </div>
-        </div>
+        </article>
       </div>
-      <p class="muted" style="margin-top:0.75rem">
-        Access is password-protected and shared by invitation following a mutual NDA.
-      </p>
+
+      <p class="muted" style="margin-top:.75rem">Access is password‑protected and shared by invitation only.</p>
     </section>
 
-    <!-- ABOUT -->
-    <section>
-      <h2>About SMCG</h2>
-      <p>
-        SMCG is a geoscience consulting group co-led by professionals with decades of combined experience in exploration and applied data science.
-        We build ML-ready data systems, prospectivity and anomaly-detection workflows, and decision support that scale from greenfields to advanced projects.
-        Our work is <em>confidential by default</em>; public materials describe capabilities and outcomes, not proprietary methods or datasets.
-      </p>
-      <div class="notice" role="note" aria-label="Confidentiality note">
-        <span class="dot" aria-hidden="true"></span>
-        <div>
-          <strong>Confidentiality.</strong> We do not list clients or project specifics publicly.
-          Detailed case studies and proposal microsites are available by invitation under password protection.
-        </div>
-      </div>
-    </section>
+	<!-- About -->
+	<span id="about" class="anchor"></span>
+	<section aria-labelledby="about-title">
+	  <h2 id="about-title">About SMCG</h2>
 
-    <!-- SERVICES -->
-    <span id="services" class="anchor"></span>
-    <section>
-      <h2>Services</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <strong>Exploration Data Systems</strong>
-          <p class="muted">End-to-end stewardship: design, automation, and governance (not day-to-day DB admin)</p>
-          <ul class="clean">
-            <li>Architecture & standardization of drill, geochem, geophysics, mapping</li>
-            <li>Migration planning & scoped imports (MX Deposit expertise)</li>
-            <li>Validation rules & QA/QC pipelines embedded in workflows</li>
-            <li>Automated reports & dashboards for decision-makers</li>
-            <li>Reusable automation to reduce manual effort</li>
-          </ul>
-        </div>
+	  <p class="muted" style="font-size:1.05rem">
+		We help <strong>junior and mid-cap teams punch above their weight</strong> by bringing
+		major-grade data, AI, and decision-support into lean exploration workflows. Our job is to be your
+		<em>force multiplier</em>—so your geologists spend more time making decisions, not wrangling data.
+	  </p>
 
-        <div class="card">
-          <strong>Prospectivity & Targeting</strong>
-          <p class="muted">Hybrid ML + Mineral Systems to rank targets with explainability</p>
-          <ul class="clean">
-            <li>Feature engineering from structure, physics, geochem, proximity</li>
-            <li>Modeling with transparent validation & feature importance</li>
-            <li>Scope-dependent target ranking, uncertainty bands, drill-ready shortlists</li>
-          </ul>
-        </div>
+	  <!-- Credibility / Roles -->
+	  <div class="card" style="margin-top:1rem">
+		<strong>Who we are</strong>
+		<p class="muted" style="margin:.4rem 0 0">
+		  Co-led by exploration leaders with <strong>20+ years</strong> experience across greenfields to advanced projects,
+		  and <strong>VP/Director-level</strong> backgrounds in geodata and mineral exploration. Our team has earned
+		  <strong>multiple international awards</strong> for applying ML/AI to exploration.
+		</p>
+	  </div>
 
-        <div class="card">
-          <strong>Anomaly Detection & Trend Analysis</strong>
-          <p class="muted">Find meaningful geochemical/geophysical anomalies and patterns — cleanly and reproducibly</p>
-          <ul class="clean">
-            <li>Outlier & cluster detection across multi-element datasets</li>
-            <li>Campaign-aware comparisons to confirm persistence</li>
-            <li>QA checks to separate signal from noise and lab/processing artefacts</li>
-            <li>Maps & interval summaries highlighting follow-up areas</li>
-          </ul>
-        </div>
+	  <!-- “Why choose us” value props -->
+	  <div class="grid cols-2" style="margin-top:1rem">
+		<div class="card">
+		  <strong>Why teams choose SMCG</strong>
+		  <ul class="clean">
+			<li><strong>Fast Impact:</strong> Lean pilots that de-risk before you scale.</li>
+			<li><strong>Advanced Methods:</strong> ML-ready data, explainable prospectivity, QA/QC.</li>
+			<li><strong>On your terms:</strong> Tailored workflows that fit team size and timelines.</li>
+			<li><strong>No black boxes:</strong> Transparent logic, reproducible outputs, handover ready.</li>
+		  </ul>
+		</div>
+		<div class="card">
+		  <strong>What we bring</strong>
+		  <ul class="clean">
+			<li><strong>Exploration-first judgement:</strong> Mineral systems thinking grounded in real project constraints.</li>
+			<li><strong>Computer science depth:</strong> Data engineering, ML/AI, and software practices that scale.</li>
+			<li><strong>Explainable & defensible:</strong> Methods you can audit, with QA/QC and uncertainty.</li>
+			<li><strong>High-trust engagement:</strong> Confidentiality and IP-safe workflows by default.</li>
+		  </ul>
+		</div>
+	  </div>
+	</section>
 
-        <div class="card">
-          <strong>Text & Knowledge Mining</strong>
-          <p class="muted">Turn large volumes of reports and literature into usable insight</p>
-          <ul class="clean">
-            <li>Consolidate historical reports, memos, assessments, and open sources</li>
-            <li>Extract key facts: geology, structures, ages, mineralization, locations</li>
-            <li>Surface relationships & themes to inform targeting and due diligence</li>
-            <li>Deliver searchable summaries, source links, executive-level briefs</li>
-          </ul>
-        </div>
+	<section aria-labelledby="approach-title">
+	  <h2 id="approach-title">How we work</h2>
+	  <div class="grid cols-4">
+		<div class="card"><strong>Discover</strong><p class="muted">Scope goals, data, constraints. NDA in place.</p></div>
+		<div class="card"><strong>Pilot</strong><p class="muted">Lean experiment to prove impact & de-risk.</p></div>
+		<div class="card"><strong>Scale</strong><p class="muted">Operationalize workflows sized to your team.</p></div>
+		<div class="card"><strong>Handover</strong><p class="muted">Docs, training, reproducibility baked in.</p></div>
+	  </div>
+	</section>
 
-        <div class="card">
-          <strong>Bespoke Solutions</strong>
-          <p class="muted">When standard tools don’t fit, we build tailored workflows.</p>
-          <ul class="clean">
-            <li>Custom data pipelines & automation</li>
-            <li>Experimental ML/AI workflows for unique datasets</li>
-            <li>Prototype dashboards & decision-support apps</li>
-            <li>Collaborative R&amp;D at reduced rates when outcomes benefit both sides</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+	<section aria-labelledby="recognition-title">
+	  <h2 id="recognition-title">Recognition</h2>
+	  <div class="grid cols-3">
+		<div class="card" style="text-align:center"><div class="badge">Award</div><div style="font-weight:700">Future Explorers Challenge</div><div class="muted">Winner</div></div>
+		<div class="card" style="text-align:center"><div class="badge">Award</div><div style="font-weight:700">NGEA™</div><div class="muted">Winner</div></div>
+		<div class="card" style="text-align:center"><div class="badge">Experience</div><div style="font-weight:700">VP/Director-level</div><div class="muted">Exploration leadership</div></div>
+	  </div>
+	</section>
 
-    <!-- PROJECT EXAMPLES -->
-    <section>
-      <h2>Project Examples (Public, anonymized)</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3 class="cs-title" style="margin:0 0 0.25rem">Exploration Data System (MX Deposit-Centric)</h3>
-          <div class="muted" style="font-size:0.9rem">~10 days · Architecture, migration, QA/QC automation</div>
-          <ul class="clean">
-            <li>Unified drill, geochem, geophysics, and mapping schema</li>
-            <li>Validation rules & automated checks (overlaps, assay ranges)</li>
-            <li>One-click exports & a lightweight reporting dashboard</li>
-          </ul>
-          <p class="muted" style="font-size:0.9rem">Outcome: ~60% less data prep; reproducible analysis-ready datasets.</p>
-        </div>
-        <div class="card">
-          <h3 class="cs-title" style="margin:0 0 0.25rem">Prospectivity & Target Ranking</h3>
-          <div class="muted" style="font-size:0.9rem">~15 days · Hybrid ML + Mineral Systems</div>
-          <ul class="clean">
-            <li>Integrated structure, geophysics, geochem, and proximity indicators</li>
-            <li>Transparent rankings with feature importance & uncertainty bands</li>
-            <li>Drill-ready shortlists with clear follow-up rationale</li>
-          </ul>
-          <p class="muted" style="font-size:0.9rem">Outcome: 8 high-priority targets identified to inform field programs.</p>
-        </div>
-        <div class="card">
-          <h3 class="cs-title" style="margin:0 0 0.25rem">Anomaly Detection & Trend Analysis</h3>
-          <div class="muted" style="font-size:0.9rem">~12 days · Multi-element screening, QA gating, maps</div>
-          <ul class="clean">
-            <li>Flagged meaningful multi-element anomalies across campaigns</li>
-            <li>Separated signal from lab/processing artefacts with QA checks</li>
-            <li>Mapped trends & interval tables for follow-up</li>
-          </ul>
-          <p class="muted" style="font-size:0.9rem">Outcome: New trend surfaced; supported trenching and sample planning.</p>
-        </div>
-        <div class="card">
-          <h3 class="cs-title" style="margin:0 0 0.25rem">Text & Knowledge Mining (District Synthesis)</h3>
-          <div class="muted" style="font-size:0.9rem">~8 days · Consolidation, key-fact extraction, exec summaries</div>
-          <ul class="clean">
-            <li>Pulled insights from historical & open sources</li>
-            <li>Extracted geology, structure, age, mineralization & location facts</li>
-            <li>Delivered searchable summaries with source links</li>
-          </ul>
-          <p class="muted" style="font-size:0.9rem">Outcome: Faster desktop study; clearer inputs for targeting and due diligence.</p>
-        </div>
-      </div>
-      <div class="cta" style="margin-top:0.75rem">
-        <a class="btn secondary" href="team.html">Meet the team</a>
-      </div>
-    </section>
+		
+	<!-- Services (teaser) -->
+	<span id="services" class="anchor"></span>
+	<section aria-labelledby="services-title">
+	  <h2 id="services-title">What we do</h2>
+	  <div class="grid cols-3">
+		<div class="card">
+		  <strong>Data systems</strong>
+		  <p class="muted">ML-ready data; validation & QA/QC baked into workflows.</p>
+		</div>
+		<div class="card">
+		  <strong>Prospectivity</strong>
+		  <p class="muted">Hybrid Mineral Systems + ML with explainability and uncertainty.</p>
+		</div>
+		<div class="card">
+		  <strong>Decision support</strong>
+		  <p class="muted">Dashboards, automation, and tools that scale to lean teams.</p>
+		</div>
+	  </div>
+	  <div class="cta" style="margin-top:.75rem">
+		<a class="btn secondary" href="services.html">View full services</a>
+	  </div>
+	</section>
 
-    <!-- CONTACT -->
-    <span id="contact" class="anchor"></span>
-    <section>
-      <h2>Contact</h2>
-      <p>Ready to scope a project or collaborate? Send a note and include your goals, datasets, and timeline.</p>
-      <p><strong>Email:</strong> <a href="mailto:contact@smcg-services.com">contact@smcg-services.com</a></p>
-      <p class="muted" style="margin-top:0.75rem">We don’t accept confidential information until an NDA is in place. Request one in your email if needed.</p>
-    </section>
+	<!-- Selected outcomes (compact) -->
+	<section aria-labelledby="outcomes-title">
+	  <h2 id="outcomes-title">Selected outcomes</h2>
+	  <ul class="clean" style="columns:2;gap:2rem;max-width:900px">
+		<li class="muted">~60% less data prep via ML-ready data systems</li>
+		<li class="muted">8 drill-ready targets prioritized with uncertainty bands</li>
+		<li class="muted">Campaign-consistent anomaly detection across multi-element data</li>
+		<li class="muted">Faster desktop studies through text/knowledge mining</li>
+	  </ul>
+	  <div class="cta" style="margin-top:.75rem">
+		<a class="btn secondary" href="work.html">See anonymized case notes</a>
+	  </div>
+	</section>
+
+	<!-- CTA -->
+	<section aria-labelledby="cta-title">
+	  <h2 id="cta-title">Plan a project</h2>
+	  <p class="muted">Tell us your goals, datasets, and timeline. We’ll scope a lean project that proves value before you scale.</p>
+	  <div class="cta">
+		<a class="btn" href="mailto:contact@smcg-services.com?subject=Project%20scope%20request">Start a project</a>
+		<a class="btn secondary" href="#about">Why SMCG?</a>
+	  </div>
+	</section>
   </main>
 
   <footer>
     &copy; 2025 SMCG – Small to Mid Cap Geoscience Consultants
   </footer>
+
+  <script>
+    // Respect reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.style.scrollBehavior = 'auto';
+    }
+  </script>
+  
+  <script>
+	// Mobile toggle
+	const toggle = document.querySelector('.nav-toggle');
+	const menu = document.getElementById('site-menu');
+	if (toggle && menu){
+		toggle.addEventListener('click', () => {
+		const open = menu.classList.toggle('open');
+		toggle.setAttribute('aria-expanded', String(open));
+	});
+	}
+
+	// Add a shadow when scrolling
+	const nav = document.querySelector('.nav');
+	let ticking = false;
+	window.addEventListener('scroll', () => {
+		if (!ticking){
+		window.requestAnimationFrame(() => {
+			nav.classList.toggle('scrolled', window.scrollY > 2);
+			ticking = false;
+		});
+		ticking = true;
+		}
+	});
+
+	// Respect reduced motion
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		document.documentElement.style.scrollBehavior = 'auto';
+	}
+	</script>
+  
+  <script type="application/ld+json">
+	{
+	  "@context":"https://schema.org",
+	  "@type":"Organization",
+	  "name":"SMCG – Small to Mid Cap Geoscience Consultants",
+	  "url":"https://smcg-services.com",
+	  "logo":"https://smcg-services.com/assets/logo.png",
+	  "sameAs": [],
+	  "knowsAbout":[
+		"Mineral systems analysis",
+		"Exploration data engineering",
+		"Prospectivity modeling",
+		"Anomaly detection",
+		"Applied ML/AI in exploration"
+	  ],
+	  "areaServed":"Global"
+	}
+	</script>
+	
+  <script>
+  (function(){
+    const here = location.pathname.replace(/\/+$/,'') || '/';
+    document.querySelectorAll('.menu a').forEach(a => {
+      const url = new URL(a.href, location.origin);
+      const path = url.pathname.replace(/\/+$/,'') || '/';
+      if (path === here) a.setAttribute('aria-current','page');
+      // Special case: homepage section jumps shouldn't get page highlight
+      if (here === '/' && url.hash) a.removeAttribute('aria-current');
+    });
+  })();
+  </script>
 </body>
 </html>

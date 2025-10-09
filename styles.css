@@ -1,0 +1,258 @@
+/* =========================================
+   SMCG Styles
+   Author: SMCG
+   Notes:
+   - Asset paths assume /assets/ at the site root.
+   - Hero texture: /assets/geo-texture.(webp|avif|png)
+   ========================================= */
+
+/* =========================
+   Design Tokens
+========================= */
+:root{
+  /* Brand */
+  --primary:#002244;         /* SMCG navy */
+  --primary-700:#001933;
+  --accent:#ffcc00;          /* SMCG accent */
+
+  /* Surfaces & text */
+  --surface:#ffffff;
+  --page:#f6f7fb;
+  --text:#111827;
+  --muted:#6b7280;
+  --ring:rgba(0,34,68,0.08);
+  --success:#15803d;
+
+  /* Nav (light) */
+  --nav-bg:#ffffff;
+  --nav-text:#0b1a2e;
+  --nav-border:rgba(0,34,68,0.10);
+  --nav-hover:rgba(0,34,68,0.06);
+
+  /* BHP highlight */
+  --bhp:#ff6a13;
+  --bhp-ink:#1f2937;
+  --bhp-soft:rgba(255,106,19,0.1);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --surface:#0b1220;
+    --page:#070c16;
+    --text:#e5e7eb;
+    --muted:#9ca3af;
+    --ring:rgba(255,255,255,0.06);
+
+    --primary:#0d2a4f;
+    --primary-700:#0a213f;
+
+    /* Keep nav readable in dark environments */
+    --nav-bg:#0e172a;
+    --nav-text:#e5e7eb;
+    --nav-border:rgba(255,255,255,0.12);
+    --nav-hover:rgba(255,255,255,0.06);
+  }
+}
+
+/* =========================
+   Base
+========================= */
+*{box-sizing:border-box}
+html:focus-within{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif;
+  color:var(--text);
+  background:var(--page);
+  line-height:1.6;
+}
+a{color:var(--primary);text-underline-offset:2px}
+img{max-width:100%;height:auto}
+.container{max-width:1120px;margin:0 auto;padding:0 1rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* =========================
+   Topbar / Nav
+========================= */
+.topbar{
+  background:linear-gradient(180deg,#ffffff 0%, #f8fafc 100%);
+  color:var(--nav-text);
+}
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--nav-bg);
+  backdrop-filter:saturate(140%) blur(6px);
+  border-bottom:1px solid var(--nav-border);
+  box-shadow:none;
+}
+.nav.scrolled{box-shadow:0 6px 18px var(--ring)}
+.nav .inner{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.6rem 1rem}
+
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--nav-text)}
+.brand-mark{
+  width:32px;height:32px;object-fit:contain;display:block;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.10));
+  border-radius:6px; /* remove if you prefer sharp corners */
+}
+.brand-word{font-weight:700;letter-spacing:.3px;color:var(--nav-text)}
+
+.menu{display:flex;gap:.25rem;flex-wrap:wrap;align-items:center}
+.menu a{
+  color:var(--nav-text);
+  text-decoration:none;font-weight:600;
+  padding:.45rem .65rem;border-radius:8px;
+}
+.menu a:hover{color:var(--primary);background:var(--nav-hover)}
+.menu a[aria-current="page"]{outline:2px solid var(--accent);outline-offset:2px;border-radius:10px}
+
+/* Mobile menu */
+.nav-toggle{
+  display:none;align-items:center;justify-content:center;
+  width:40px;height:40px;border-radius:10px;border:1px solid var(--nav-border);
+  background:transparent;color:var(--nav-text);cursor:pointer;
+}
+.nav-toggle .bar{display:block;width:18px;height:2px;background:var(--nav-text);margin:3px auto;border-radius:2px}
+@media (max-width: 880px){
+  .menu{
+    position:absolute;right:1rem;top:60px;
+    background:var(--surface);border:1px solid var(--nav-border);
+    border-radius:12px;box-shadow:0 12px 30px var(--ring);
+    padding:.5rem;display:none;flex-direction:column;min-width:220px;
+  }
+  .menu.open{display:flex}
+  .nav-toggle{display:flex}
+}
+
+/* =========================
+   Hero (band + glass panel)
+========================= */
+/* Full-bleed band behind the hero content */
+.hero-band{
+  background: 
+	linear-gradient(180deg, rgba(0,17,34,0.40) 0%, rgba(0,34,68,0.28) 100%),
+	url('assets/geo-texture.webp?v=99') center/cover no-repeat !important;
+  background-blend-mode: normal; /* no blending tricks yet */
+  background-color: transparent !important; /* beat the generic section background */
+}
+
+/* Soft glass panel for readability */
+.hero-glass{
+  display:inline-block;
+  margin:0 auto;
+  padding:clamp(1rem,2.5vw,1.5rem) clamp(1rem,2.8vw,1.75rem);
+  background:rgba(0,20,40,0.35);
+  backdrop-filter:saturate(140%) blur(6px);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Light text on glass */
+.hero-glass h1{ color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.35); margin:0; }
+.hero-glass p{ color:#f1f6ff; text-shadow:0 1px 6px rgba(0,0,0,.25); margin:.75rem auto 0; max-width:60ch; }
+
+/* Trust chips tuned for glass */
+.hero-glass .trust{
+  color:#fff;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.28);
+}
+
+/* Hero content container */
+header.hero{padding:3.25rem 0 2.25rem;text-align:center;background:transparent}
+.hero h1{font-size:clamp(2rem,3.2vw,2.75rem);letter-spacing:.3px;margin:0}
+.hero p{margin:.75rem auto 0;max-width:60ch;color:var(--muted)}
+.trustbar{display:flex;gap:.5rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
+.trust{background:rgba(0,0,0,0.04);border:1px solid var(--nav-border);border-radius:999px;padding:.3rem .65rem;font-size:.9rem}
+
+/* Glass panel variant */
+.hero-glass{
+  display:inline-block;
+  margin:0 auto;
+  padding:clamp(1rem,2.5vw,1.5rem) clamp(1rem,2.8vw,1.75rem);
+  background:rgba(0,20,40,0.35);
+  backdrop-filter:saturate(140%) blur(6px);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+.hero-glass h1{ color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.35); margin:0; }
+.hero-glass p{ color:#f1f6ff; text-shadow:0 1px 6px rgba(0,0,0,.25); margin:.75rem auto 0; max-width:60ch; }
+.hero-glass .trust{
+  color:#fff;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.28);
+}
+
+/* =========================
+   Sections / Cards / Buttons
+========================= */
+main{padding:2rem 0}
+section{background:var(--surface);border-radius:14px;padding:1.8rem;margin:0 0 1.25rem;box-shadow:0 8px 24px var(--ring)}
+h2{margin:.2rem 0 1rem;color:var(--primary);font-size:1.6rem}
+
+.grid{display:grid;gap:1rem}
+@media(min-width:780px){
+  .grid.cols-2{grid-template-columns:1fr 1fr}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+}
+.card{position:relative;border:1px solid rgba(0,0,0,0.07);border-radius:14px;padding:1.1rem;background:var(--surface);box-shadow:0 2px 10px var(--ring)}
+.badge{position:absolute;top:12px;right:12px;background:#f1f5f9;border:1px solid #e5e7eb;border-radius:999px;padding:.18rem .55rem;font-size:.75rem;color:#0f172a}
+.muted{color:var(--muted)}
+ul.clean{margin:.25rem 0 0;padding-left:1.1rem}
+
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;padding:.65rem 1rem;border-radius:10px;font-weight:700;letter-spacing:.2px}
+.btn:hover{opacity:.95}
+.btn.secondary{background:transparent;color:var(--primary);border:1px solid var(--primary)}
+.cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}
+
+.notice{display:flex;gap:.6rem;align-items:flex-start;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:.9rem}
+.notice .dot{width:10px;height:10px;border-radius:50%;background:var(--success);margin-top:7px}
+
+/* =========================
+   BHP Highlight Band
+========================= */
+.band-bhp{position:relative;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
+.band-bhp:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,var(--bhp-soft),transparent 55%)}
+.bhp-header{display:flex;gap:.75rem;align-items:center;margin-bottom:1rem}
+.bhp-logo{width:84px;height:auto}
+.bhp-chip{background:var(--bhp);color:#fff;font-weight:700;letter-spacing:.2px;border-radius:999px;padding:.25rem .6rem}
+.bhp-card{border-left:4px solid var(--bhp)}
+.bhp-cta .btn{background:var(--bhp)}
+.bhp-cta .btn.secondary{border-color:var(--bhp);color:var(--bhp);background:transparent}
+
+/* =========================
+   Footer & Utilities
+========================= */
+footer{text-align:center;padding:1.25rem;color:var(--muted);font-size:.95rem}
+.anchor{position:relative;top:-72px;visibility:hidden}
+.kicker{font-size:.9rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.18em}
+.cs-title{margin:0 0 .25rem}
+
+/* Focus styles */
+:where(a,button,[href],[tabindex]):focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:2px;
+  border-radius:10px;
+}
+
+/* =========================
+   Details/Summary polish (for work.html)
+========================= */
+details.card{padding:0}
+details.card > summary{
+  list-style:none;cursor:pointer;padding:1rem 1.1rem;border-radius:14px;
+}
+details.card > summary::-webkit-details-marker{display:none}
+details.card[open] > summary{border-bottom:1px solid rgba(0,0,0,0.08)}
+details.card > summary strong{font-weight:700}
+
+/* simple chevron */
+details.card > summary::after{
+  content:"▸"; float:right; transform:translateY(2px); opacity:.6;
+}
+details.card[open] > summary::after{
+  content:"▾"; opacity:.7;
+}
+details.card > *:not(summary){padding:0 1.1rem 1rem}
