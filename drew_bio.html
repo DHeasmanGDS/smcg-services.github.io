@@ -37,9 +37,7 @@
           <a href="services.html">Services</a>
           <a href="work.html">Work</a>
           <a href="team.html">Team</a>
-          <a href="index.html#about">About</a>
           <a href="index.html#contact">Contact</a>
-          <a href="index.html#bhp">BHP Xplor</a>
         </div>
       </div>
     </nav>
@@ -59,102 +57,135 @@
     <!-- Summary -->
     <section aria-labelledby="summary-title">
       <h2 id="summary-title">Summary</h2>
-      <div class="card">
-        <div class="grid cols-2" style="align-items:start">
-          <div style="display:flex;gap:1rem;align-items:center">
-            <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:#f1f5f9;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.08)">
-              <!-- Replace with your asset path -->
-              <img src="assets/drew.jpg" alt="Photo of Drew Heasman" style="width:100%;height:100%;object-fit:cover" />
-            </div>
-            <div>
-              <h3 style="margin:.1rem 0 .2rem">Drew Heasman</h3>
-              <div class="muted">Geoscientist & data scientist · Director-level leadership</div>
-            </div>
-          </div>
-          <div>
-            <p class="muted" style="margin:.25rem 0 .6rem">
-              Geoscientist and data scientist with <strong>20+ years</strong> in mineral exploration. I build
-              <strong>ML-ready data systems</strong>, <strong>prospectivity & anomaly-detection workflows</strong>, and
-              <strong>decision support</strong> that scale from greenfields to advanced projects. International award-winning
-              applications of ML/AI to exploration; MSc research in geoscience & text mining.
-            </p>
-            <ul class="clean">
-              <li><strong>Current:</strong> Co-lead, SMCG (exploration data systems & geo-ML consulting)</li>
-              <li><strong>Education:</strong> MSc (Geology) — computer-science-driven methods; BSc (Geology); BSc (Computing & Info Systems)</li>
-              <li><strong>Location:</strong> Remote & on-site by arrangement</li>
-            </ul>
-            <div class="cta" style="margin-top:.8rem">
-              <a class="btn" href="mailto:dheasman@smcg-services.com">Email</a>
-              <a class="btn secondary" href="assets/SMCG_Drew_Heasman_CV.pdf" download>Download CV</a>
-              <a class="btn secondary" href="https://www.linkedin.com/in/drew-heasman/" target="_blank" rel="noopener">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-      </div>
+		<div class="card team-card">
+		  <div class="team-grid">
+			<div class="team-identity">
+			  <div class="team-photo">
+				<img src="assets/drew.jpg" alt="Photo of Drew Heasman" />
+			  </div>
+
+			  <div class="team-titleblock">
+				<h3 class="team-name">
+				  Drew Heasman <span class="team-honorifics">P.Geo, MSc</span>
+				</h3>
+				<div class="muted team-role">Founder · Geoscience data scientist</div>
+
+				<div class="team-badges">
+				  <span class="badge inline">Award-winning ML/AI</span>
+				  <span class="badge inline">20+ years</span>
+				</div>
+
+				<div class="cta" style="margin-top:.8rem">
+				  <a class="btn" href="mailto:dheasman@smcg-services.com">Email</a>
+				  <a class="btn secondary" href="assets/SMCG_Drew_Heasman_CV.pdf" download>Download CV</a>
+				  <a class="btn secondary" href="https://www.linkedin.com/in/drew-heasman/" target="_blank" rel="noopener">LinkedIn</a>
+				</div>
+			  </div>
+			</div>
+
+			<div>
+			  <p class="muted team-bio">
+				Geoscientist and data scientist with 20+ years in mineral exploration. I build ML-ready data systems,
+				QA/QC visibility, and explainable targeting workflows that teams can run and audit.
+			  </p>
+
+			  <div class="grid cols-2" style="margin-top:.75rem">
+				<div class="card" style="box-shadow:none">
+				  <strong>Focus</strong>
+				  <ul class="clean">
+					<li>Exploration data systems</li>
+					<li>QA/QC workflows</li>
+					<li>Prospectivity + targeting support</li>
+					<li>Geochemistry analytics</li>
+				  </ul>
+				</div>
+				<div class="card" style="box-shadow:none">
+				  <strong>Working style</strong>
+				  <ul class="clean">
+					<li>Geoscience first</li>
+					<li>Reproducible delivery</li>
+					<li>Clear handover + training</li>
+					<li>Remote or on-site by arrangement</li>
+				  </ul>
+				</div>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+
     </section>
 
     <!-- Expertise (chips reuse .trust style for consistency) -->
-    <section aria-labelledby="expertise-title">
-      <h2 id="expertise-title">Expertise</h2>
-      <div class="card">
-        <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-          <span class="trust">Machine Learning / AI</span>
-          <span class="trust">Exploration Data Systems</span>
-          <span class="trust">Database Architecture</span>
-          <span class="trust">QA/QC Workflows</span>
-          <span class="trust">Prospectivity Mapping</span>
-          <span class="trust">Anomaly Detection</span>
-          <span class="trust">Geochem & Geophysics Integration</span>
-          <span class="trust">Text & Knowledge Mining</span>
-          <span class="trust">Dashboards & Tools</span>
-          <span class="trust">MX Deposit</span>
-          <span class="trust">Leadership & Advisory</span>
-        </div>
-      </div>
-    </section>
+		<section aria-labelledby="expertise-title">
+		  <h2 id="expertise-title">Core expertise</h2>
+		  <div class="grid cols-2">
+			<div class="card">
+			  <strong>Data + QA/QC</strong>
+			  <p class="muted" style="margin:.4rem 0 0">
+				ML-ready databases, validation rules, reproducible exports, and decision-ready QA/QC reporting.
+			  </p>
+			</div>
+			<div class="card">
+			  <strong>Targeting + analytics</strong>
+			  <p class="muted" style="margin:.4rem 0 0">
+				Prospectivity options, anomaly detection, and synthesis that supports defensible decisions.
+			  </p>
+			</div>
+		  </div>
+		</section>
 
-    <!-- Awards & Recognition -->
-    <section aria-labelledby="awards-title">
-      <h2 id="awards-title">Awards & recognition</h2>
-      <div class="grid cols-3">
-        <div class="card" style="text-align:center">
-          <div class="badge">2022</div>
-          <div style="font-weight:700">NGEA™ — Grand Prize</div>
-          <div class="muted">Frank Arnott Award</div>
-        </div>
-        <div class="card" style="text-align:center">
-          <div class="badge">2022</div>
-          <div style="font-weight:700">NGEA™ — Impact & Exploration Significance</div>
-          <div class="muted">Frank Arnott Award</div>
-        </div>
-        <div class="card" style="text-align:center">
-          <div class="badge">2024</div>
-          <div style="font-weight:700">Future Explorers Challenge — 1st</div>
-          <div class="muted">Dundee Precious Metals</div>
-        </div>
-      </div>
-      <p class="muted" style="margin:.75rem 0 0">Plus invited talks on geoscience + ML, prospectivity, and geodata strategy.</p>
-    </section>
+
+		<!-- Awards & Recognition -->
+		<section aria-labelledby="awards-title">
+		  <h2 id="awards-title">Awards & recognition</h2>
+		  <div class="card">
+			<ul class="clean">
+			  <li><strong>Future Explorers Challenge</strong> — first prize (applied ML in mineral exploration)</li>
+			  <li><strong>NGEA™ (Frank Arnott Award)</strong> — grand prize and category prize award recipient (PDAC)</li>
+			</ul>
+
+			<div class="cta" style="margin-top:.8rem">
+			  <a class="btn secondary"
+				 href="https://financialpost.com/globe-newswire/atha-energys-director-of-geodata-wins-top-prize-at-future-explorers-competition-for-machine-learning-process"
+				 target="_blank" rel="noopener">
+				Read the news release
+			  </a>
+
+			  <a class="btn secondary"
+				 href="https://www.linkedin.com/posts/drew-heasman_digitaldiscovery-futureexplorerschallenge-activity-7207740120014176256-ZWqG"
+				 target="_blank" rel="noopener">
+				Watch the award video
+			  </a>
+
+			  <a class="btn secondary"
+				 href="https://www.linkedin.com/posts/frank-arnott-next-generation-explorers-award_pdac2022-activity-6948286074750205952-DufM/"
+				 target="_blank" rel="noopener">
+				NGEA™ announcement
+			  </a>
+			</div>
+		  </div>
+		</section>
+
 
     <!-- Work with me -->
-    <section aria-labelledby="work-title">
-      <h2 id="work-title">Work with me</h2>
-      <div class="card">
-        <p class="muted" style="margin:.25rem 0 .6rem">
-          Every engagement is scoped to data complexity, outcomes, and timelines.
-          Fixed-fee or day-rate proposals on request. For R&amp;D-adjacent problems, collaborative structures can reduce cost.
-        </p>
-        <ul class="clean" style="margin-top:.25rem">
-          <li>Exploration data systems & automation</li>
-          <li>Prospectivity & anomaly workflows</li>
-          <li>Text & knowledge mining for due diligence</li>
-        </ul>
-        <div class="cta" style="margin-top:.8rem">
-          <a class="btn" href="mailto:dheasman@smcg-services.com?subject=Project%20Inquiry%20-%20Proposal%20Request&body=Hi%20Drew%2C%0A%0AScope%20summary%3A%0ADatasets%3A%0ATimeline%3A%0AKey%20deliverables%3A%0A%0AThanks%2C%0A">Request a proposal</a>
-          <a class="btn secondary" href="index.html#bhp">See innovation areas</a>
-        </div>
-      </div>
-    </section>
+		<section aria-labelledby="work-title">
+		  <h2 id="work-title">Work with me</h2>
+		  <div class="card">
+			<p class="muted" style="margin:.25rem 0 .6rem;max-width:900px">
+			  Engagements are scoped to your datasets, objectives, and timeline. Most clients start with a small discovery + pilot,
+			  then scale what works.
+			</p>
+			<div class="cta" style="margin-top:.8rem">
+			  <a class="btn" href="mailto:dheasman@smcg-services.com?subject=Project%20Inquiry%20-%20SMCG&body=Hi%20Drew%2C%0A%0AGoals%3A%0ADatasets%3A%0ATimeline%3A%0A%0AThanks%2C%0A">
+				Request a proposal
+			  </a>
+			  <a class="btn secondary" href="services.html">See services</a>
+			  <a class="btn secondary" href="work.html">See work</a>
+			</div>
+		  </div>
+		</section>
+
   </main>
 
   <footer>&copy; 2025 SMCG – Small to Mid Cap Geoscience Consultants</footer>

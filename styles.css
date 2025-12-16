@@ -29,10 +29,6 @@
   --nav-border:rgba(0,34,68,0.10);
   --nav-hover:rgba(0,34,68,0.06);
 
-  /* BHP highlight */
-  --bhp:#ff6a13;
-  --bhp-ink:#1f2937;
-  --bhp-soft:rgba(255,106,19,0.1);
 }
 
 @media (prefers-color-scheme: dark){
@@ -165,25 +161,6 @@ header.hero{padding:3.25rem 0 2.25rem;text-align:center;background:transparent}
 .trustbar{display:flex;gap:.5rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
 .trust{background:rgba(0,0,0,0.04);border:1px solid var(--nav-border);border-radius:999px;padding:.3rem .65rem;font-size:.9rem}
 
-/* Glass panel variant */
-.hero-glass{
-  display:inline-block;
-  margin:0 auto;
-  padding:clamp(1rem,2.5vw,1.5rem) clamp(1rem,2.8vw,1.75rem);
-  background:rgba(0,20,40,0.35);
-  backdrop-filter:saturate(140%) blur(6px);
-  border:1px solid rgba(255,255,255,0.18);
-  border-radius:14px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.25);
-}
-.hero-glass h1{ color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.35); margin:0; }
-.hero-glass p{ color:#f1f6ff; text-shadow:0 1px 6px rgba(0,0,0,.25); margin:.75rem auto 0; max-width:60ch; }
-.hero-glass .trust{
-  color:#fff;
-  background:rgba(255,255,255,0.12);
-  border:1px solid rgba(255,255,255,0.28);
-}
-
 /* =========================
    Sections / Cards / Buttons
 ========================= */
@@ -211,16 +188,75 @@ ul.clean{margin:.25rem 0 0;padding-left:1.1rem}
 .notice .dot{width:10px;height:10px;border-radius:50%;background:var(--success);margin-top:7px}
 
 /* =========================
-   BHP Highlight Band
+   Awards / Press (2-card layout)
 ========================= */
-.band-bhp{position:relative;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
-.band-bhp:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,var(--bhp-soft),transparent 55%)}
-.bhp-header{display:flex;gap:.75rem;align-items:center;margin-bottom:1rem}
-.bhp-logo{width:84px;height:auto}
-.bhp-chip{background:var(--bhp);color:#fff;font-weight:700;letter-spacing:.2px;border-radius:999px;padding:.25rem .6rem}
-.bhp-card{border-left:4px solid var(--bhp)}
-.bhp-cta .btn{background:var(--bhp)}
-.bhp-cta .btn.secondary{border-color:var(--bhp);color:var(--bhp);background:transparent}
+.awards-row{
+  display:grid;
+  gap:1rem;
+  margin-top:1rem;
+}
+
+@media(min-width:780px){
+  .awards-row{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    align-items:stretch;
+  }
+}
+
+.award-card{
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  padding:1.1rem;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,0.07);
+  background:var(--surface);
+  box-shadow:0 2px 10px var(--ring);
+}
+
+.award-card img{
+  width:200px;
+  height:auto;
+  max-height:200px;
+  object-fit:contain;
+  border-radius:12px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.08);
+  padding:.45rem;
+  flex:0 0 auto;
+}
+
+.award-meta{min-width:0}
+.award-title{font-weight:800;color:var(--primary);line-height:1.2}
+.award-sub{font-size:.95rem;margin-top:.25rem}
+
+.award-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-top:.55rem;
+}
+
+.award-link{
+  display:inline-block;
+  font-weight:800;
+  text-decoration:none;
+  padding:.35rem .55rem;
+  border-radius:10px;
+  color:var(--primary);
+  background:rgba(0,34,68,0.06);
+  border:1px solid rgba(0,34,68,0.10);
+}
+
+.award-link:hover{
+  background:rgba(0,34,68,0.10);
+}
+
+.award-link.secondary{
+  font-weight:700;
+  opacity:.95;
+}
+
 
 /* =========================
    Footer & Utilities
@@ -238,21 +274,115 @@ footer{text-align:center;padding:1.25rem;color:var(--muted);font-size:.95rem}
 }
 
 /* =========================
+   Team page
+========================= */
+.team-card{padding:1.25rem}
+
+.team-grid{
+  display:grid;
+  gap:1.25rem;
+}
+@media(min-width:780px){
+  .team-grid{
+    grid-template-columns: 1fr 1.2fr;
+    align-items:start;
+  }
+}
+
+/* Team identity: image on top, text underneath */
+.team-identity{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.6rem;
+}
+
+/* Center photo on small screens if you want */
+@media(max-width:779px){
+  .team-identity{ align-items:center; text-align:center; }
+  .team-tags{ justify-content:center; }
+}
+
+/* Optional: on larger screens, you can keep it stacked OR switch to side-by-side */
+@media(min-width:980px){
+  .team-identity{
+    flex-direction:row;
+    align-items:center;
+    text-align:left;
+  }
+}
+
+.team-photo{
+  width:120px;
+  height:120px;
+  border-radius:999px;
+  overflow:hidden;
+  background:#f1f5f9;
+  border:3px solid #fff;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+  flex:0 0 auto;
+}
+.team-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.team-name{margin:.1rem 0 .2rem}
+.team-bio{margin:.25rem 0 .6rem}
+
+/* Tags row */
+.team-tags{
+  display:flex;
+  gap:.4rem;
+  flex-wrap:wrap;
+}
+
+
+
+/* =========================
    Details/Summary polish (for work.html)
 ========================= */
 details.card{padding:0}
+
 details.card > summary{
-  list-style:none;cursor:pointer;padding:1rem 1.1rem;border-radius:14px;
+  list-style:none;
+  cursor:pointer;
+  padding:1rem 1.25rem;
+  border-radius:14px;
 }
+
 details.card > summary::-webkit-details-marker{display:none}
-details.card[open] > summary{border-bottom:1px solid rgba(0,0,0,0.08)}
+details.card[open] > summary{border-bottom:1px solid rgba(0,0,0,0.08); padding-bottom:.9rem;}
 details.card > summary strong{font-weight:700}
 
 /* simple chevron */
 details.card > summary::after{
-  content:"▸"; float:right; transform:translateY(2px); opacity:.6;
+  content:"▸";
+  float:right;
+  transform:translateY(2px);
+  opacity:.6;
 }
 details.card[open] > summary::after{
-  content:"▾"; opacity:.7;
+  content:"▾";
+  opacity:.7;
 }
-details.card > *:not(summary){padding:0 1.1rem 1rem}
+
+details.card > *:not(summary){
+  padding:.75rem 1.25rem 1.1rem;
+}
+
+/* Better list spacing inside details cards */
+details.card > *:not(summary) ul.clean{
+  padding-left:1.4rem;
+  margin:.5rem 0 0;
+}
+details.card > *:not(summary) li{
+  margin:.25rem 0;
+}
+
+.badge.inline{ position:static; top:auto; right:auto; }
+
+
+
